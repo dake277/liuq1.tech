@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、Typed的使用​    Typed是一个可以实现页面文字打印机效果的插件，下面是在cactus主题中使用的方法：  在themes\cactus\layout_partial\scripts.ejs这个js文件中添加如下代码：  12&lt;!-- Typed --&gt;&lt;%- js(&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;typed">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于自己博客插件的使用">
+<meta property="og:url" content="http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Qi Blog">
+<meta property="og:description" content="一、Typed的使用​    Typed是一个可以实现页面文字打印机效果的插件，下面是在cactus主题中使用的方法：  在themes\cactus\layout_partial\scripts.ejs这个js文件中添加如下代码：  12&lt;!-- Typed --&gt;&lt;%- js(&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;typed">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:/Users/LiuQi/AppData/Roaming/Typora/typora-user-images/image-20201119185001902.png">
+<meta property="og:image" content="c:/Users/LiuQi/AppData/Roaming/Typora/typora-user-images/image-20201119185304740.png">
+<meta property="og:image" content="c:/Users/LiuQi/AppData/Roaming/Typora/typora-user-images/image-20201119185936910.png">
+<meta property="article:published_time" content="2020-11-19T10:13:25.000Z">
+<meta property="article:modified_time" content="2020-11-19T11:14:44.070Z">
+<meta property="article:author" content="Qi">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/LiuQi/AppData/Roaming/Typora/typora-user-images/image-20201119185001902.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>关于自己博客插件的使用</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2020/11/18/%E7%AC%AC%E4%B8%80%E7%AF%87blog/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&text=关于自己博客插件的使用"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&is_video=false&description=关于自己博客插件的使用"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于自己博客插件的使用&body=Check out this article: http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&name=关于自己博客插件的使用&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&t=关于自己博客插件的使用"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81Typed%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">一、Typed的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81busuanzi%E8%AE%A1%E6%95%B0%E8%84%9A%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">二、busuanzi计数脚本的使用</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        关于自己博客插件的使用
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Qi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-11-19T10:13:25.000Z" itemprop="datePublished">2020-11-19</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h4 id="一、Typed的使用"><a href="#一、Typed的使用" class="headerlink" title="一、Typed的使用"></a>一、Typed的使用</h4><p>​    Typed是一个可以实现页面文字打印机效果的插件，下面是在cactus主题中使用的方法：</p>
+<ol>
+<li>在themes\cactus\layout_partial\scripts.ejs这个js文件中添加如下代码：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- Typed --&gt;</span><br><span class="line">&lt;%- js(&quot;https:&#x2F;&#x2F;cdn.bootcss.com&#x2F;typed.js&#x2F;2.0.5&#x2F;typed.js&quot;) %&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol start="2">
+<li>然后讲themes\cactus\layout\index.ejs中的代码改为如下：</li>
+</ol>
+<img src="C:\Users\LiuQi\AppData\Roaming\Typora\typora-user-images\image-20201119185001902.png" alt="image-20201119185001902" style="zoom: 67%;" />
+
+<ol start="3">
+<li>在themes\cactus\source\js\main.js文件末尾加入以下代码：</li>
+</ol>
+<img src="C:\Users\LiuQi\AppData\Roaming\Typora\typora-user-images\image-20201119185304740.png" alt="image-20201119185304740" style="zoom:67%;" />
+
+
+
+<ol start="4">
+<li>添加刚才div和span的样式，在文件themes\cactus\source\css\style.styl中添加：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.coding</span> </span><br><span class="line">  <span class="selector-tag">position</span>: <span class="selector-tag">relative</span></span><br><span class="line"></span><br><span class="line">  <span class="selector-class">.prompt</span></span><br><span class="line">    <span class="selector-tag">display</span>: <span class="selector-tag">inline</span></span><br><span class="line">    <span class="selector-tag">white-space</span>: <span class="selector-tag">pre-wrap</span></span><br><span class="line">    <span class="selector-tag">line-height</span>: 30<span class="selector-tag">px</span></span><br><span class="line">    <span class="selector-tag">margin-bottom</span>: <span class="selector-class">.75em</span></span><br><span class="line"></span><br><span class="line"><span class="selector-class">.description</span></span><br><span class="line">  <span class="selector-tag">min-height</span>: 105<span class="selector-tag">px</span></span><br></pre></td></tr></table></figure>
+
+<p>不同的样式需求可以自行修改</p>
+<ol start="5">
+<li>实现如下：</li>
+</ol>
+<p><img src="C:\Users\LiuQi\AppData\Roaming\Typora\typora-user-images\image-20201119185936910.png" alt="image-20201119185936910"></p>
+<h4 id="二、busuanzi计数脚本的使用"><a href="#二、busuanzi计数脚本的使用" class="headerlink" title="二、busuanzi计数脚本的使用"></a>二、busuanzi计数脚本的使用</h4><p>使用很简单</p>
+<ol>
+<li><p>在themes\cactus\layout_partial\scripts.ejs添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%- js(&#39;&#x2F;&#x2F;busuanzi.ibruce.info&#x2F;busuanzi&#x2F;2.3&#x2F;busuanzi.pure.mini.js&#39;) %&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在themes\cactus\layout\index.ejs中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;span id&#x3D;&quot;busuanzi_container_site_pv&quot;&gt;</span><br><span class="line">          &lt;span id&#x3D;&quot;busuanzi_value_site_pv&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81Typed%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">一、Typed的使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81busuanzi%E8%AE%A1%E6%95%B0%E8%84%9A%E6%9C%AC%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">二、busuanzi计数脚本的使用</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&text=关于自己博客插件的使用"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&is_video=false&description=关于自己博客插件的使用"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=关于自己博客插件的使用&body=Check out this article: http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&title=关于自己博客插件的使用"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&name=关于自己博客插件的使用&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/2020/11/19/%E5%85%B3%E4%BA%8E%E8%87%AA%E5%B7%B1%E5%8D%9A%E5%AE%A2%E6%8F%92%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/&t=关于自己博客插件的使用"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2020
+    Qi
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="/projects_url">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- Typed -->
+
+<script src="/lib/typed/typed.js"></script>
+
+
+<script src="/lib/typed/typed.min.js"></script>
+
+
+<!-- busuanzi -->
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Copied!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
