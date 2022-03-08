@@ -460,7 +460,7 @@ body {
   font-display: swap;
   font-weight: 400;
   font-size: 14px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Meslo LG", "Helvetica Neue", Helvetica, Arial, sans-serif, "微软雅黑", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   flex: 1;
@@ -608,7 +608,7 @@ body {
   letter-spacing: 0.01em;
   font-weight: 200;
   font-style: normal;
-  font-size: 0.8rem;
+  font-size: 1.8rem;
 }
 #header #nav ul {
   margin: 0;
@@ -1387,7 +1387,7 @@ article .content .caption {
   font-display: swap;
   font-weight: 400;
   font-size: 11.200000000000001px;
-  font-family: "Menlo", "Meslo LG", monospace;
+  font-family: "Meslo LG", "Helvetica Neue", Helvetica, Arial, sans-serif, "微软雅黑", monospace;
   line-height: 1.725;
   text-rendering: geometricPrecision;
   text-align: center;

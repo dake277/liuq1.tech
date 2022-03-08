@@ -117,12 +117,25 @@ $(document).ready(function() {
  * Typed插件打印效果实现
  */
 $(function () {
-  if(location.pathname !=='/') return;
+  if(location.pathname !=="/"){
+    return;
+  }
+  var date = new Date();
+  var ShanBeiUrl = "https://apiv3.shanbay.com/weapps/dailyquote/quote/?" + date.toISOString().substring(0,9);
+  $.get(
+      ShanBeiUrl,
+      function (result) {
+
+  },
+      "json");
     // var str =  data.content+'\n'
     // + data.translation+"\n---- "
     // +data.author +'\n'
-    var str =  'True love comes quietly, without banners or flashing lights.'+'\n'
-    +"真爱都是悄然降临，既不旗幡招展，也不灯火辉煌。"+"\n----"
+    var str =
+        "True love comes quietly, " +
+        "without banners or flashing lights." +
+        "\n" + "真爱都是悄然降临，既不旗幡招展，也不灯火辉煌。" +
+        "\n----";
     
     
     var options = {
@@ -139,8 +152,8 @@ $(function () {
       ],
       typeSpeed: 20,
       startDelay:300,
-      loop: true,
-    }
+      loop: false,
+    };
     var typed = new Typed(".description .typed", options);
   
 });
