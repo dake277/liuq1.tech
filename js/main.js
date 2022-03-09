@@ -120,40 +120,36 @@ $(function () {
   if(location.pathname !=="/"){
     return;
   }
-  var date = new Date();
-  var ShanBeiUrl = "https://apiv3.shanbay.com/weapps/dailyquote/quote/?" + date.toISOString().substring(0,9);
-  $.get(
-      ShanBeiUrl,
-      function (result) {
+  $.ajax({
+    url: "http://localhost:3000/getdaysentence",
+    dataType: "json",
+    success: function (data) {
+      var str = (data.content || "Welcome to my blog") + "\n" + (data.translation || "Liuqi");
+      var options = {
+        strings: [
+          str + " ",
+          // str + "Who?? ^3000",
+          // str + "It's me ^3000",
+          // str +'Haha, make a joke',
+          // str +"Author ^1000",
+          str +" ^1000",
+          str + `\n---- ${data.author}. ^1000`,
+          // str+"Welcome to my blog. ^1000",
+          // str+"Here you can learn the JavaScript",
+          // str+"Here you can learn the Css",
+        ],
+        typeSpeed: 20,
+        startDelay:300,
+        loop: false,
+      };
+      var typed = new Typed(".description .typed", options);
+    },
+  });
 
-  },
-      "json");
-    // var str =  data.content+'\n'
-    // + data.translation+"\n---- "
-    // +data.author +'\n'
     var str =
         "True love comes quietly, " +
         "without banners or flashing lights." +
         "\n" + "真爱都是悄然降临，既不旗幡招展，也不灯火辉煌。" +
         "\n----";
-    
-    
-    var options = {
-      strings: [ 
-        str + " ",
-        // str + "Who?? ^3000",
-        // str + "It's me ^3000",
-        // str +'Haha, make a joke',
-        // str +"Author ^1000",
-        str +"Erich Segal"+'\nWelcome to my blog. ^1000',
-        // str+"Welcome to my blog. ^1000",
-        // str+"Here you can learn the JavaScript",
-        // str+"Here you can learn the Css",
-      ],
-      typeSpeed: 20,
-      startDelay:300,
-      loop: false,
-    };
-    var typed = new Typed(".description .typed", options);
   
 });
