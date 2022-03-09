@@ -120,36 +120,41 @@ $(function () {
   if(location.pathname !=="/"){
     return;
   }
+
+  var typedString = function (str, author) {
+    var options = {
+      strings: [
+        str + " ",
+        // str + "Who?? ^3000",
+        // str + "It's me ^3000",
+        // str +'Haha, make a joke',
+        // str +"Author ^1000",
+        str +" ^300",
+        str + `\n---- ${author}. ^5000`,
+      ],
+      typeSpeed: 25,
+      startDelay: 300,
+      loop: true,
+    };
+    var typed = new Typed(".description .typed", options);
+  };
+
   $.ajax({
     url: "http://localhost:3000/getdaysentence",
     dataType: "json",
     success: function (data) {
-      var str = (data.content || "Welcome to my blog") + "\n" + (data.translation || "Liuqi");
-      var options = {
-        strings: [
-          str + " ",
-          // str + "Who?? ^3000",
-          // str + "It's me ^3000",
-          // str +'Haha, make a joke',
-          // str +"Author ^1000",
-          str +" ^1000",
-          str + `\n---- ${data.author}. ^1000`,
-          // str+"Welcome to my blog. ^1000",
-          // str+"Here you can learn the JavaScript",
-          // str+"Here you can learn the Css",
-        ],
-        typeSpeed: 20,
-        startDelay:300,
-        loop: false,
-      };
-      var typed = new Typed(".description .typed", options);
+      var str = data.content  + "\n" + data.translation;
+      var author = data.author;
+      typedString(str, author);
     },
+    error: function () {
+      var str = "And by that destiny, " +
+                "to perform an act Where of what's past is prologue, " +
+                "what to come In yours and my discharge." +
+                "\n" + "凡是过往, 皆是序章";
+      var author = "William Shakespeare";
+      typedString(str, author);
+    }
   });
-
-    var str =
-        "True love comes quietly, " +
-        "without banners or flashing lights." +
-        "\n" + "真爱都是悄然降临，既不旗幡招展，也不灯火辉煌。" +
-        "\n----";
   
 });
