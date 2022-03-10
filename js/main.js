@@ -140,7 +140,7 @@ $(function () {
   };
 
   $.ajax({
-    url: "https://49.234.113.17:3001/getdaysentence",
+    url: "https://www.liuq1.tech:3001/getdaysentence",
     dataType: "json",
     success: function (data) {
       var str = data.content  + "\n" + data.translation;
