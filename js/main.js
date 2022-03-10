@@ -140,7 +140,7 @@ $(function () {
   };
 
   $.ajax({
-    url: "http://localhost:3000/getdaysentence",
+    url: "http://49.234.113.17:3000/getdaysentence",
     dataType: "json",
     success: function (data) {
       var str = data.content  + "\n" + data.translation;
