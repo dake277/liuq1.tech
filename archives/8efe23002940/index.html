@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="一、概念 什么是HTML5  HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。设计目的是为了在移动设备上支持多媒体。HTML5是最新的html标准，拥有新的语义、图形以及多媒体元素，简化web应用，对应程序员来说也是简单易学。通常简称 “H5”  HTML5优势   提高可用性和改进用户的友好体验 更好的语义化标签 可以给站点带来更多的多媒体元素（视频和音频">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html5 新特性">
+<meta property="og:url" content="http://example.com/archives/8efe23002940/index.html">
+<meta property="og:site_name" content="Qi Blog">
+<meta property="og:description" content="一、概念 什么是HTML5  HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。设计目的是为了在移动设备上支持多媒体。HTML5是最新的html标准，拥有新的语义、图形以及多媒体元素，简化web应用，对应程序员来说也是简单易学。通常简称 “H5”  HTML5优势   提高可用性和改进用户的友好体验 更好的语义化标签 可以给站点带来更多的多媒体元素（视频和音频">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-16T08:27:37.000Z">
+<meta property="article:modified_time" content="2022-03-16T11:52:32.804Z">
+<meta property="article:author" content="Qi">
+<meta property="article:tag" content="html">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>html5 新特性</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/archives/1cceadf942e2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/archives/468e4550cfcd/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/8efe23002940/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/8efe23002940/&text=html5 新特性"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/8efe23002940/&is_video=false&description=html5 新特性"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=html5 新特性&body=Check out this article: http://example.com/archives/8efe23002940/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/8efe23002940/&name=html5 新特性&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/8efe23002940/&t=html5 新特性"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">一、概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81HTML5%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">二、HTML5新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="toc-number">2.1.</span> <span class="toc-text">1. 新增语义化标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A2%9E%E5%BC%BA%E5%9E%8B%E8%A1%A8%E5%8D%95"><span class="toc-number">2.2.</span> <span class="toc-text">2. 增强型表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8B%96%E6%94%BEAPI"><span class="toc-number">2.3.</span> <span class="toc-text">3. 拖放API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Canvas%E5%92%8CSVG"><span class="toc-number">2.4.</span> <span class="toc-text">4、Canvas和SVG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0"><span class="toc-number">2.5.</span> <span class="toc-text">5、媒体元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Web-Storage"><span class="toc-number">2.6.</span> <span class="toc-text">6、Web Storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81Web-Sockets"><span class="toc-number">2.7.</span> <span class="toc-text">7、Web Sockets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.8.</span> <span class="toc-text">8、地理位置</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        html5 新特性
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Qi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-12-16T08:27:37.000Z" itemprop="datePublished">2020-12-16</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/html/" rel="tag">html</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><ol>
+<li>什么是HTML5</li>
+</ol>
+<p>HTML5是HTML最新的修订版本，2014年10月由万维网联盟（W3C）完成标准制定。<br>设计目的是为了在移动设备上支持多媒体。HTML5是最新的html标准，<br>拥有新的语义、图形以及多媒体元素，简化web应用，对应程序员来说也是简单易学。通常简称 “H5”</p>
+<ol start="2">
+<li>HTML5优势</li>
+</ol>
+<ul>
+<li>提高可用性和改进用户的友好体验</li>
+<li>更好的语义化标签</li>
+<li>可以给站点带来更多的多媒体元素（视频和音频）</li>
+<li>可以很好地替代FLASH和Silverlight</li>
+<li>当涉及到网站的抓取和索引的时候，对于SEO很友好</li>
+<li>可被大量应用于移动应用程序和游戏</li>
+<li>可移植性好</li>
+</ul>
+<ol start="3">
+<li>HTML5劣势</li>
+</ol>
+<ul>
+<li>该标准并未能很好的被PC端浏览器所支持</li>
+<li>IE9以下的浏览器几乎都不兼容</li>
+</ul>
+<h2 id="二、HTML5新特性"><a href="#二、HTML5新特性" class="headerlink" title="二、HTML5新特性"></a>二、HTML5新特性</h2><ul>
+<li>Canvas、SVG – 用于绘画的元素，canvas绘制的图片会失真而SVG绘制的不会失真。</li>
+<li>video、audio – 用于播放视频和音频的媒体。</li>
+<li>Drag 、Drop – 用于拖放的 。</li>
+<li>Geolocation – 用于获取地理位置。</li>
+<li>localStorage、sessionStorage – 用于本地离线存储。</li>
+<li>webSQL、IndexDB – 前端数据库操作，由于安全性极低，目前h5已放弃。</li>
+<li>web Worker – 独立于其他脚本，不影响页面性能运行在后台的javascript。</li>
+<li>webSocket – 单个TCP连接上进行全双工通讯的协议。</li>
+<li>新的语义化标签 – 如：article、footer、header、nav、section。</li>
+<li>新的表单控件 – 如：date、time、email、url、search。</li>
+</ul>
+<h3 id="1-新增语义化标签"><a href="#1-新增语义化标签" class="headerlink" title="1. 新增语义化标签"></a>1. 新增语义化标签</h3><p>HTML 语义化是指仅仅从 HTML 元素上就能看出页面的大致结构， 比如需要强调的内容可以放在 &lt;strong&gt;标签中，而不是通过样式设置 &lt;span&gt;标签去做。不同浏览器对 HTML 元素的解析可能有差异，HTML 语义化便是在抛开样式之后，页面能有一个友好的展示效果。我们力求让页面有良好的结构，让页面的元素有含义，同时利于被搜索引擎解析，利于 SEO。HTML 语义化的建议：</p>
+<ul>
+<li>少使用无意义的 &lt;div&gt;、&lt;span&gt;标签；</li>
+<li>在 &lt;label&gt;标签中设置 for 属性和对应的 &lt;input&gt;关联起来；</li>
+<li>设置&lt;img&gt;标签的 alt 属性，给&lt;a&gt;标签设置 title 属性，利于 SEO；</li>
+<li>在页面的标题部分使用&lt;h1&gt;~&lt;h6&gt; 标签，不需要给它们加多余的样式；</li>
+<li>与表单、有序列表、无序列表相关的标签不要单独使用。</li>
+</ul>
+<p>HTML5 也新增了一些语义化的元素，我们通过标签名就能判断标签内容。<br>语义元素的名称其实也很好理解，下面是它们的作用和用法：</p>
+<ul>
+<li>&lt;header&gt;：头部标签</li>
+<li>&lt;nav&gt;：导航标签</li>
+<li>&lt;main&gt;：主体标签</li>
+<li>&lt;article&gt;：独立内容的标签</li>
+<li>&lt;section&gt;：区段标签</li>
+<li>&lt;aside&gt;：侧边栏标签</li>
+<li>&lt;footer&gt;：尾部标签</li>
+</ul>
+<h3 id="2-增强型表单"><a href="#2-增强型表单" class="headerlink" title="2. 增强型表单"></a>2. 增强型表单</h3><p>新的表单中添加了很多输入型控件，比如：number、url、email、range、color、date等，通过input的type属性使用。例如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span> <span class="attr">name</span>=<span class="string">&quot;demo&quot;</span> <span class="attr">min</span>=<span class="string">&quot;1&quot;</span> <span class="attr">max</span>=<span class="string">&quot;100&quot;</span> <span class="attr">step</span>=<span class="string">&quot;2&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">method</span>=<span class="string">&quot;get&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>邮箱标签: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;email&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>数字标签: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;number&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>滑动条标签: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;range&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>搜索框标签: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;search&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>日期框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;date&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>星期框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;week&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>月份框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;month&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>颜色框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;color&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>网址框: <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;url&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;reset&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>同时，还添加了<strong>placeholder、required、pattern、min、max、height、width</strong>等表单属性。</p>
+<ul>
+<li>placeholder 提供对输入域的提示值</li>
+<li>required 规定表单提交前输入域是否必填</li>
+<li>pattern 规定用于验证input域的正则表达式</li>
+<li>min 规定输入域允许的最小值</li>
+<li>max 规定输入域允许的最大值</li>
+<li>multiple 输入域可以选择多个值，适用于email和file类型</li>
+</ul>
+<h3 id="3-拖放API"><a href="#3-拖放API" class="headerlink" title="3. 拖放API"></a>3. 拖放API</h3><p><strong>draggable属性</strong></p>
+<p>如果网页元素的draggable元素为true，这个元素就是可以拖动的。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">draggable</span>=<span class="string">&quot;true&quot;</span>&gt;</span>Draggable Div<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>拖放事件</strong></p>
+<p>拖动过程会触发很多事件，主要有下面这些：</p>
+<ul>
+<li>dragstart：网页元素开始拖动时触发。</li>
+<li>drag：被拖动的元素在拖动过程中持续触发。</li>
+<li>dragenter：被拖动的元素进入目标元素时触发，应在目标元素监听该事件。</li>
+<li>dragleave：被拖动的元素离开目标元素时触发，应在目标元素监听该事件。</li>
+<li>dragover：被拖动元素停留在目标元素之中时持续触发，应在目标元素监听该事件。</li>
+<li>drap：被拖动元素或从文件系统选中的文件，拖放落下时触发。</li>
+<li>dragend：网页元素拖动结束时触发。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">draggableElement.addEventListener(<span class="string">&#x27;dragstart&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;拖动开始！&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>dataTransfer对象</strong><br>拖动过程中，回调函数接受的事件参数，有一个dataTransfer属性，指向一个对象，包含与拖动相关的各种信息。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">draggableElement.addEventListener(<span class="string">&#x27;dragstart&#x27;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">event.dataTransfer.setData(<span class="string">&#x27;text&#x27;</span>, <span class="string">&#x27;Hello World!&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>dataTransfer对象的属性有：</p>
+<ol>
+<li>dropEffect：拖放的操作类型，决定了浏览器如何显示鼠标形状，可能的值为copy、move、link和none。</li>
+<li>effectAllowed：指定所允许的操作，可能的值为copy、move、link、copyLink、copyMove、linkMove、all、none和uninitialized（默认值，等同于all，即允许一切操作）。</li>
+<li>files：包含一个FileList对象，表示拖放所涉及的文件，主要用于处理从文件系统拖入浏览器的文件。</li>
+<li>types：储存在DataTransfer对象的数据的类型。</li>
+</ol>
+<p>dataTransfer对象的方法有：</p>
+<ol>
+<li>setData(format, data)：在dataTransfer对象上储存数据。第一个参数format用来指定储存的数据类型，比如text、url、text/html等。</li>
+<li>getData(format)：从dataTransfer对象取出数据。</li>
+<li>clearData(format)：清除dataTransfer对象所储存的数据。如果指定了format参数，则只清除该格式的数据，否则清除所有数据。</li>
+<li>setDragImage(imgElement, x, y)：指定拖动过程中显示的图像。默认情况下，许多浏览器显示一个被拖动元素的半透明版本。参数imgElement必须是一个图像元素，而不是指向图像的路径，参数x和y表示图像相对于鼠标的位置。</li>
+</ol>
+<h3 id="4、Canvas和SVG"><a href="#4、Canvas和SVG" class="headerlink" title="4、Canvas和SVG"></a>4、Canvas和SVG</h3><p>上文提到的canvas元素可以为页面提供一块画布来展示图形。结合Canvas API，就可以在这块画布上动态生成和展示各种图形、图表、图像以及动画了。Canvas本质上是位图画布，不可缩放，绘制出来的对象不属于页面DOM结构或者任何命名空间。不需要将每个图元当做对象存储，执行性能非常好。</p>
+<p>利用Canvas API进行绘图，首先要获取canvas元素的上下文，然后用该上下文中封装的各种绘图功能进行绘图</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;canvas id=<span class="string">&quot;canvas&quot;</span>&gt;替代内容&lt;/canvas&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line"><span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>);</span><br><span class="line"><span class="keyword">var</span> context =canvas.getContext(<span class="string">&quot;2d&quot;</span>); <span class="comment">// 获取上下文</span></span><br><span class="line"><span class="comment">//设置纯色</span></span><br><span class="line">context.fillStyle = <span class="string">&quot;red&quot;</span>;</span><br><span class="line">context.strokeStyle = <span class="string">&quot;blue&quot;</span>;</span><br><span class="line"><span class="comment">// 实践表明在不设置fillStyle下的默认fillStyle为black</span></span><br><span class="line">context.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line"><span class="comment">// 实践表明在不设置strokeStyle下的默认strokeStyle为black</span></span><br><span class="line">context.strokeRect(<span class="number">120</span>, <span class="number">0</span>, <span class="number">100</span>, <span class="number">100</span>);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>SVG是html5的另一项图形功能，它是一种标准的矢量图形，是一种文件格式，有自己的API。html5引入了内联SVG，使得SVG元素可以直接出现在html标记中.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span> <span class="attr">height</span>=<span class="string">100</span> <span class="attr">width</span>=<span class="string">100</span>&gt;</span><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span>=<span class="string">50</span> <span class="attr">cy</span>=<span class="string">50</span> <span class="attr">r</span>=<span class="string">50</span> /&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="5、媒体元素"><a href="#5、媒体元素" class="headerlink" title="5、媒体元素"></a>5、媒体元素</h3><p>HTML5新增了两个与媒体相关的标签，让开发人员不必依赖任何插件就能在网页中嵌入跨浏览器的音频和视频内容，这两个标签就是&lt;audio&gt;和&lt;video&gt;。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 视频 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">video</span> <span class="attr">src</span>=<span class="string">&quot;video.mp4&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myVideo&quot;</span>&gt;</span>Video Player<span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 音频 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">audio</span> <span class="attr">src</span>=<span class="string">&quot;song.mp3&quot;</span> <span class="attr">id</span>=<span class="string">&quot;myAudio&quot;</span>&gt;</span>Audio Player<span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>使用这两个元素时，至少要在标签中包含src属性，指向要加载的媒体文件。并非所有的浏览器都支持所有媒体格式，所以可以指定多个不同的媒体来源，此时使用&lt;source&gt;元素而不用指定src属性。</p>
+<p>&lt;audio&gt;和&lt;video&gt;包含很多属性，包括autuplay、controls、src等，还可以触发很多事件，让开发人员在使用少量HTML和JavaScript的情况下编写出自定义的音频/视频播放器。</p>
+<h3 id="6、Web-Storage"><a href="#6、Web-Storage" class="headerlink" title="6、Web Storage"></a>6、Web Storage</h3><p>通过本地存储（Local Storage），web 应用程序能够在用户浏览器中对数据进行本地的存储。<br>在 HTML5 之前，应用程序数据只能存储在 cookie 中，包括每个服务器请求。本地存储则更安全，并且可在不影响网站性能的前提下将大量数据存储于本地。<br>与 cookie 不同，存储限制要大得多（至少5MB），并且信息不会被传输到服务器。<br>本地存储经由起源地（origin）（经由域和协议）。所有页面，从起源地，能够存储和访问相同的数据。</p>
+<p>Web Storage的目的是克服由cookie带来的一些限制，当数据需要被严格控制在客户端上时，无须持续地将数据发回服务器。Web Storage的两个主要目标是：</p>
+<ul>
+<li>提供一种在cookie之外存储会话数据的途径</li>
+<li>提供一种存储大量可以跨会话存在的数据的机制<br>Web Storage常用的两个对象分别是localStorage和sessionStorage。</li>
+</ul>
+<p>sessionStorage对象存储某个特定会话的数据，该数据只保持到浏览器关闭。因为sessionStorage绑定于某个服务器会话，所以文件在本地运行时是不可用的。下面展示了怎么使用sessionStorage:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;James&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> name = sessionStorage.getItem(<span class="string">&quot;name&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>localStorage对象在HTML5规范中作为持久保存客户端数据的方案，目的是跨越会话存储对象，但有特定的访问限制。要访问同一个localStorage对象，页面必须来自同一个域名(子域名无效)，使用同一种协议，在同一个端口上。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.setItem(<span class="string">&quot;name&quot;</span>, <span class="string">&quot;James&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> name = <span class="built_in">localStorage</span>.getItem(<span class="string">&quot;name&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p>与其他客户端数据存储方案类似，Web Storage同样也有限制，这些限制因浏览器而异。对于localStorage和sessionStorage，有的浏览器会设置每个来源5MB的限制，有的浏览器会设置2.5M的限制。</p>
+<h3 id="7、Web-Sockets"><a href="#7、Web-Sockets" class="headerlink" title="7、Web Sockets"></a>7、Web Sockets</h3><p>Web Sockets的目标是在一个单独的持久连接上提供全双工、双向通信。使用标准的HTTP服务器无法实现Web Sockets，只有支持这种协议的专门服务器才能正常工作。</p>
+<p>未加密的连接不再是http://而是ws://，加密的连接也不再是https://而是wss://。使用自定义协议而不是HTTP协议的好处是，能够在客户端和服务器之间发送非常少量的数据，而不必担心HTTP那样字节级的开销。</p>
+<p>要创建Web Socket，先实现一个WebSocket对象并传入要连接的URL:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> socket = <span class="keyword">new</span> WebSocket(<span class="string">&quot;ws://www.example.com/&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>Web Socket打开之后，就可以通过连接发送和接收数据。要向服务器发送数据，使用send()方法并传入任意字符串，例如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socket.send(<span class="string">&quot;Hello World&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>对于复杂的数据结构，在通过连接发送前，必须进行序列化:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将数据序列化为一个JSON字符串，再发送到服务器</span></span><br><span class="line"><span class="keyword">const</span> message = &#123;</span><br><span class="line">name: <span class="string">&quot;James&quot;</span>,</span><br><span class="line">age: <span class="string">&quot;2019&quot;</span>,</span><br><span class="line">date: <span class="string">&quot;2019-01-01&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">socket.send(<span class="built_in">JSON</span>.stringify(message));</span><br></pre></td></tr></table></figure>
+<p>接下来，服务器要读取其中的数据，就要解析接收的JSON字符串。当服务器向客户端发来消息时，WebSocket对象就会触发message事件。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">socket.onmessage = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line"><span class="keyword">const</span> data = event.data;</span><br><span class="line"></span><br><span class="line"><span class="comment">//处理数据</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>要关闭Web Socket连接，可以在任何时候调用close()方法。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">socket.close();</span><br></pre></td></tr></table></figure>
+
+<h3 id="8、地理位置"><a href="#8、地理位置" class="headerlink" title="8、地理位置"></a>8、地理位置</h3><p>通过地理定位(geolocation)API，JavaScript代码能够访问到用户的当前位置信息。当然，访问之前用户必须同意共享其地理位置信息。</p>
+<p>Geolocation API在浏览器中的实现是navigator.geolocation对象，这个对象包含3个方法。第一个方法是getCurrentPosition()，调用这个方法就会触发请求用户共享地理定位信息的对话框。成功会接收到一个Position对象参数，该对象有两个属性：coords和timestamp。coords对象中将包含下列与位置相关的信息：</p>
+<ul>
+<li>latitude：纬度</li>
+<li>longitude：经度</li>
+<li>accuracy：经、纬度坐标的精度，以米为单位<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">navigator.geolocation.getCurrentPosition(<span class="function"><span class="params">position</span> =&gt;</span> &#123;</span><br><span class="line">drawMapAt(position.coords.latitude, position.coords.longitude);</span><br><span class="line">&#125;, <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;Error Code:&quot;</span> + error.code);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&quot;Error Message:&quot;</span> + error.message);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果希望跟踪用户的位置，可以使用watchPosition()方法。这个方法与getCurrentPosition()方法基本相同，第一次调用，执行成功回调或者错误回调，然后，watchPosition()就地等待系统发出位置已改变的信号（它不会自己轮询位置）。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">一、概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81HTML5%E6%96%B0%E7%89%B9%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">二、HTML5新特性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%87%E7%AD%BE"><span class="toc-number">2.1.</span> <span class="toc-text">1. 新增语义化标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%A2%9E%E5%BC%BA%E5%9E%8B%E8%A1%A8%E5%8D%95"><span class="toc-number">2.2.</span> <span class="toc-text">2. 增强型表单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%8B%96%E6%94%BEAPI"><span class="toc-number">2.3.</span> <span class="toc-text">3. 拖放API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Canvas%E5%92%8CSVG"><span class="toc-number">2.4.</span> <span class="toc-text">4、Canvas和SVG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E5%AA%92%E4%BD%93%E5%85%83%E7%B4%A0"><span class="toc-number">2.5.</span> <span class="toc-text">5、媒体元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81Web-Storage"><span class="toc-number">2.6.</span> <span class="toc-text">6、Web Storage</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81Web-Sockets"><span class="toc-number">2.7.</span> <span class="toc-text">7、Web Sockets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.8.</span> <span class="toc-text">8、地理位置</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/8efe23002940/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/8efe23002940/&text=html5 新特性"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/8efe23002940/&is_video=false&description=html5 新特性"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=html5 新特性&body=Check out this article: http://example.com/archives/8efe23002940/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/8efe23002940/&title=html5 新特性"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/8efe23002940/&name=html5 新特性&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/8efe23002940/&t=html5 新特性"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    Qi
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="external nofollow noopener noreferrer">豫ICP备2022004851号</a>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- Typed -->
+
+<script src="/lib/typed/typed.js"></script>
+
+
+<script src="/lib/typed/typed.min.js"></script>
+
+
+<!-- busuanzi -->
+<!--
+<script src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+-->
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
