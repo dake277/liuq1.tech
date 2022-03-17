@@ -309,7 +309,7 @@
   padding-left: 4rem;
 }
 .py4 {
-  padding-top: 4rem;
+  padding-top: 2.3rem;
   padding-bottom: 4rem;
 }
 .px4 {
@@ -755,7 +755,7 @@ body {
 #header-post #nav {
   color: #2bbc8a;
   letter-spacing: 0.01em;
-  font-weight: 200;
+  font-weight: bold;
   font-style: normal;
   font-size: 0.8rem;
 }
@@ -767,7 +767,7 @@ body {
   color: #2bbc8a;
 }
 #header-post #nav ul a:hover {
-  background-image: linear-gradient(transparent, transparent 5px, #2bbc8a 5px, #2bbc8a);
+  background-image: linear-gradient(transparent, transparent 4.5px, #2bbc8a 4.5px, #2bbc8a);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
