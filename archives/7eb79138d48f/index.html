@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="useRefuseRef主要的功能就是帮助我们获取到DOM元素或者组件实例，它还可以保存在组件生命周期内不会变化的值。 React官网例子 12345678910111213function TextInputWithFocusButton() &amp;#123;  const inputEl &#x3D; useRef(null);  const onButtonClick &#x3D; () &#x3D;&gt; &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="useRef和forwardRef">
+<meta property="og:url" content="http://example.com/archives/7eb79138d48f/index.html">
+<meta property="og:site_name" content="Qi Blog">
+<meta property="og:description" content="useRefuseRef主要的功能就是帮助我们获取到DOM元素或者组件实例，它还可以保存在组件生命周期内不会变化的值。 React官网例子 12345678910111213function TextInputWithFocusButton() &amp;#123;  const inputEl &#x3D; useRef(null);  const onButtonClick &#x3D; () &#x3D;&gt; &amp;#123;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-12-17T04:26:35.000Z">
+<meta property="article:modified_time" content="2022-03-17T07:22:36.326Z">
+<meta property="article:author" content="Qi">
+<meta property="article:tag" content="React">
+<meta property="article:tag" content="hooks">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/monster-icon.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/monster-icon.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/monster-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>useRef和forwardRef</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/archives/39df44664175/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/archives/8f3837c26c2e/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/7eb79138d48f/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/7eb79138d48f/&text=useRef和forwardRef"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/7eb79138d48f/&is_video=false&description=useRef和forwardRef"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=useRef和forwardRef&body=Check out this article: http://example.com/archives/7eb79138d48f/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/7eb79138d48f/&name=useRef和forwardRef&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/7eb79138d48f/&t=useRef和forwardRef"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#useRef"><span class="toc-number">1.</span> <span class="toc-text">useRef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forwardRef"><span class="toc-number">2.</span> <span class="toc-text">forwardRef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">开发中的实际应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84%E5%80%BC"><span class="toc-number">3.1.</span> <span class="toc-text">获取上一次的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8useRef%E6%9D%A5%E4%BF%9D%E5%AD%98%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8F%98%E5%8C%96%E7%9A%84%E5%80%BC"><span class="toc-number">3.2.</span> <span class="toc-text">使用useRef来保存不需要变化的值</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        useRef和forwardRef
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Qi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2021-12-17T04:26:35.000Z" itemprop="datePublished">2021-12-17</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/React/" rel="tag">React</a>, <a class="tag-link-link" href="/tags/hooks/" rel="tag">hooks</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="useRef"><a href="#useRef" class="headerlink" title="useRef"></a>useRef</h2><p><strong>useRef主要的功能就是帮助我们获取到DOM元素或者组件实例，它还可以保存在组件生命周期内不会变化的值。</strong></p>
+<p>React官网例子</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">TextInputWithFocusButton</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> inputEl = useRef(<span class="literal">null</span>);</span><br><span class="line">  <span class="keyword">const</span> onButtonClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// `current` 指向已挂载到 DOM 上的文本输入元素</span></span><br><span class="line">    inputEl.current.focus();</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;input ref=&#123;inputEl&#125; type=<span class="string">&quot;text&quot;</span> /&gt;</span><br><span class="line">      &lt;button onClick=&#123;onButtonClick&#125;&gt;Focus the input&lt;/button&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子里，ref会被分配给元素DOM元素，我们可以通过inputEl.current获取到这个input的DOM对象，并使用它完成我们需要的功能。<br>这里需要注意，ref有两个特点</p>
+<ol>
+<li>每次渲染useRef的返回值都是同一个（相同的引用）</li>
+<li>ref.current发生变化的时候，他不像其他的一些hook，它不会造成组件的重新渲染</li>
+</ol>
+<p>这里在使用ref时有以下几点建议：</p>
+<ol>
+<li>ref如果获取的是DOM或者组件实例，请尽量不要拿ref.current作为其他的hooks的依赖项。</li>
+<li>如果需要手动去修改ref.current的值，最好不要在render里直接写，因为组件的render更新可能会有多次，会导致值的多次变更。最好写在useEffect方法里。</li>
+<li>如果你需要在组件ref挂载完成之后调用一个你自己的方法，你需要使用callback ref</li>
+</ol>
+<h2 id="forwardRef"><a href="#forwardRef" class="headerlink" title="forwardRef"></a>forwardRef</h2><p>那如果要获取组件的实例呢？在函数式组件中，我们不能直接去给它添加ref属性，我们需要使用forwardRef来包裹函数式组件</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Parent = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> childRef = useRef(<span class="literal">null</span>);</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    ref.current.focus();</span><br><span class="line">  &#125;, []);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Child ref=&#123;ref&#125; /&gt;</span><br><span class="line">    &lt;/&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> Child = forwardRef(<span class="function">(<span class="params">props, ref</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;child&quot;</span> <span class="attr">ref</span>=<span class="string">&#123;ref&#125;</span> /&gt;</span></span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>使用forwardRef包裹之后，函数式组件会获得被分配给自己的ref（作为第二个参数）。如果你没有使用forwardRef而直接去ref的话，React会报错。</p>
+<h2 id="开发中的实际应用"><a href="#开发中的实际应用" class="headerlink" title="开发中的实际应用"></a>开发中的实际应用</h2><h3 id="获取上一次的值"><a href="#获取上一次的值" class="headerlink" title="获取上一次的值"></a>获取上一次的值</h3><p>官方给的一个自定义hook</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">usePrevious</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> ref = useRef();</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    ref.current = value;</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">return</span> ref.current;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个hooks返回出来的值，在渲染的过程中，总是会显示上一次的值。我们来解析一下这个函数的运行步骤。<br>假设上例中ref的初始值传入的value是0,每次数据更新传入的都是递增的数据，比如1，2，3。</p>
+<ol>
+<li>初始化，ref.current = 0，渲染出来。</li>
+<li>数据变化，value传入1, 因为useEffect会在渲染完毕之后才执行，所以这次的渲染过程中，这个为1的value值不会赋值给ref.current。渲染出来的还是上一个值0，渲染完毕了，ref.current变为1。但是ref.current变化不会触发组件的重新渲染，所以需要等到下次的渲染才能显示到页面上。</li>
+<li>如此往复，渲染的就总是上一次的值。</li>
+</ol>
+<h3 id="使用useRef来保存不需要变化的值"><a href="#使用useRef来保存不需要变化的值" class="headerlink" title="使用useRef来保存不需要变化的值"></a>使用useRef来保存不需要变化的值</h3><p>因为useRef的返回值在组件的每次redner之后都是同一个，所以它可以用来保存一些在组件整个生命周期都不需要变化的值。最常见的就是定时器的清除场景。<br>刚开始在React里写定时器，你可能会这样写</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> timer;</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    timer = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;触发了&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;,[]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> clearTimer = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(timer);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Button onClick=&#123;clearTimer&#125;&gt;停止&lt;/Button&gt;</span><br><span class="line">    &lt;/&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是上面这个写法有个巨大的问题，如果这个App组件里有state变化或者他的父组件重新render等原因导致这个App组件重新render的时候，我们会发现，点击按钮停止，定时器依然会不断的在控制台打印，定时器清除事件无效了。<br>为什么呢？因为组件重新渲染之后，这里的timer以及clearTimer 方法都会重新创建，timer已经不是定时器的变量了。</p>
+<p>所以对于定时器，我们都会使用useRef来定义变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> App = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> timer = useRef();</span><br><span class="line"></span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    timer.current = <span class="built_in">setInterval</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;触发了&#x27;</span>);</span><br><span class="line">    &#125;, <span class="number">1000</span>);</span><br><span class="line">  &#125;,[]);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> clearTimer = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(timer.current);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;&gt;</span><br><span class="line">      &lt;Button onClick=&#123;clearTimer&#125;&gt;停止&lt;/Button&gt;</span><br><span class="line">    &lt;/&gt;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们还可以通过useRef的这个特性来实现一个深度依赖对比的useEffect。</p>
+<p>普通的useEffect只是一个浅比较的方法，如果我们依赖的state是一个对象，组件重新渲染，这个state对象的值没变，但是内存引用地址变化了，一样会触发useEffect的重新渲染。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> createObj = <span class="function">() =&gt;</span> (&#123;</span><br><span class="line">    name: <span class="string">&#x27;zouwowo&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 这个方法会无限循环</span></span><br><span class="line">&#125;, [createObj()]);</span><br></pre></td></tr></table></figure>
+<p>我们来使用useRef实现一个深度依赖对比的useDeepEffect</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> equal <span class="keyword">from</span> <span class="string">&#x27;fast-deep-equal&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> useDeepEffect = <span class="function">(<span class="params">callback, deps</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> emitEffect = useRef(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">const</span> prevDeps = useRef(deps);</span><br><span class="line">  <span class="keyword">if</span> (!equal(prevDeps.current, deps)) &#123;</span><br><span class="line">    <span class="comment">// 当深比较不相等的时候，修改emitEffect.current的值，触发下面的useEffect更新</span></span><br><span class="line">    emitEffect.current++;</span><br><span class="line">  &#125;</span><br><span class="line">  prevDeps.current = deps;</span><br><span class="line">  <span class="keyword">return</span> useEffect(callback, [emitEffect.current]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6894963612687958024">参考文章：你知道useRef可以实现哪些功能吗？</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#useRef"><span class="toc-number">1.</span> <span class="toc-text">useRef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#forwardRef"><span class="toc-number">2.</span> <span class="toc-text">forwardRef</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">开发中的实际应用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%B8%80%E6%AC%A1%E7%9A%84%E5%80%BC"><span class="toc-number">3.1.</span> <span class="toc-text">获取上一次的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8useRef%E6%9D%A5%E4%BF%9D%E5%AD%98%E4%B8%8D%E9%9C%80%E8%A6%81%E5%8F%98%E5%8C%96%E7%9A%84%E5%80%BC"><span class="toc-number">3.2.</span> <span class="toc-text">使用useRef来保存不需要变化的值</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/7eb79138d48f/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/7eb79138d48f/&text=useRef和forwardRef"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/7eb79138d48f/&is_video=false&description=useRef和forwardRef"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=useRef和forwardRef&body=Check out this article: http://example.com/archives/7eb79138d48f/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/7eb79138d48f/&title=useRef和forwardRef"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/7eb79138d48f/&name=useRef和forwardRef&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/7eb79138d48f/&t=useRef和forwardRef"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    Qi
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="external nofollow noopener noreferrer">豫ICP备2022004851号</a>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- Typed -->
+
+<script src="/lib/typed/typed.js"></script>
+
+
+<script src="/lib/typed/typed.min.js"></script>
+
+
+<!-- busuanzi -->
+<!--
+<script src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+-->
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
