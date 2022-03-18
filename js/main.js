@@ -135,7 +135,7 @@ $(function () {
         // str +'Haha, make a joke',
         // str +"Author ^1000",
         str +" ^200",
-        str + `\n---- ${author}. ^5000`,
+        str + "\n---- " + author+". ^5000",
       ],
       typeSpeed: 25,
       startDelay: 300,

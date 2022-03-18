@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="YOLOYOLOv1yolo是one-stage的检测方法，Yolo检测网络包括24个卷积层和两个全连接层，卷积层用来提取特征，全连接层用来预测图像位置和类别概率 设计理念Yolo将图片分成S * S个格子，如果某个物体的中心位置坐标落在某个格子，那么这个格子就负责检测出这个物体，每个格子会输出B个bounding box的信息以及C个类别的概率，每个bounding box信息包含了5个值，(x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLO">
+<meta property="og:url" content="http://example.com/archives/81f7a2c4eee7/index.html">
+<meta property="og:site_name" content="Qi Blog">
+<meta property="og:description" content="YOLOYOLOv1yolo是one-stage的检测方法，Yolo检测网络包括24个卷积层和两个全连接层，卷积层用来提取特征，全连接层用来预测图像位置和类别概率 设计理念Yolo将图片分成S * S个格子，如果某个物体的中心位置坐标落在某个格子，那么这个格子就负责检测出这个物体，每个格子会输出B个bounding box的信息以及C个类别的概率，每个bounding box信息包含了5个值，(x">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/archives/81f7a2c4eee7/image-20211015112529723.png">
+<meta property="og:image" content="http://example.com/archives/81f7a2c4eee7/image-20211015114908848.png">
+<meta property="og:image" content="http://example.com/archives/81f7a2c4eee7/image-20211015120621860.png">
+<meta property="og:image" content="http://example.com/archives/81f7a2c4eee7/image-20211015120855050.png">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=224%5Ctimes224">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=448%5Ctimes448">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=448%5Ctimes448">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5Ctimes7">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=448%5Ctimes448">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=416%5Ctimes416">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=32">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=416%5Ctimes416">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=13%5Ctimes13">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=(x,+y,+w,+h,+c)">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=7%5Ctimes7%5Ctimes2">
+<meta property="og:image" content="https://www.zhihu.com/equation?tex=13%5Ctimes13%5Ctimes%5Ctext%7Bnum_anchors%7D">
+<meta property="article:published_time" content="2022-03-18T13:53:52.000Z">
+<meta property="article:modified_time" content="2022-03-18T14:15:21.920Z">
+<meta property="article:author" content="Qi">
+<meta property="article:tag" content="CV">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/archives/81f7a2c4eee7/image-20211015112529723.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/monster-icon.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/monster-icon.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/monster-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>YOLO</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/archives/cee4fe669d40/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/archives/39df44664175/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/81f7a2c4eee7/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/81f7a2c4eee7/&text=YOLO"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/81f7a2c4eee7/&is_video=false&description=YOLO"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=YOLO&body=Check out this article: http://example.com/archives/81f7a2c4eee7/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/81f7a2c4eee7/&name=YOLO&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/81f7a2c4eee7/&t=YOLO"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#YOLO"><span class="toc-number">1.</span> <span class="toc-text">YOLO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLOv1"><span class="toc-number">1.1.</span> <span class="toc-text">YOLOv1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">设计理念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83"><span class="toc-number">1.1.3.</span> <span class="toc-text">网络训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.1.4.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLOv2"><span class="toc-number">1.2.</span> <span class="toc-text">YOLOv2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLOv2%E7%9A%84%E6%94%B9%E8%BF%9B%E7%AD%96%E7%95%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">YOLOv2的改进策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#High-Resolution-Classifier"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">High Resolution Classifier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolutional-With-Anchor-Boxes"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">Convolutional With Anchor Boxes</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLOv3"><span class="toc-number">1.3.</span> <span class="toc-text">YOLOv3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">1.3.1.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E6%8D%9F%E5%A4%B1"><span class="toc-number">1.3.2.</span> <span class="toc-text">分类损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%B0%BA%E5%BA%A6%E6%A3%80%E6%B5%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">多尺度检测</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        YOLO
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Qi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-03-18T13:53:52.000Z" itemprop="datePublished">2022-03-18</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/CV/" rel="tag">CV</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="YOLO"><a href="#YOLO" class="headerlink" title="YOLO"></a>YOLO</h1><h2 id="YOLOv1"><a href="#YOLOv1" class="headerlink" title="YOLOv1"></a>YOLOv1</h2><p>yolo是one-stage的检测方法，Yolo检测网络包括24个卷积层和两个全连接层，卷积层用来提取特征，全连接层用来预测图像位置和类别概率</p>
+<h3 id="设计理念"><a href="#设计理念" class="headerlink" title="设计理念"></a>设计理念</h3><p>Yolo将图片分成S * S个格子，如果某个物体的中心位置坐标落在某个格子，那么这个格子就负责检测出这个物体，每个格子会输出B个bounding box的信息以及C个类别的概率，每个bounding box信息包含了5个值，(x, y, w, h) 以及confidence，(x, y) 表示bounding box的中心坐标，(w, h) 是bounding box的宽和高，confidence反映了bounding box是否包含目标物体以及物体位置的准确性，计算如下：</p>
+<img src="image-20211015112529723.png" style="zoom:80%;" />
+
+<p>如果包含物体 Pr(object) = 1，否则为 0，IOU为bounding box 与真实物体区域的交并比</p>
+<p>所以，YOLO全连接层最终的输出维度为S * S * (B * 5 + C)，YOLO论文中，作者训练采用的输入图像分辨率是448x448，S=7，B=2；采用VOC 20类标注物体作为训练数据，C=20。因此输出向量为7<em>7</em>(20 + 2*5)=1470维</p>
+<p>[^虽然每个格子可以预测B个bounding box，但是最终只选择只选择IOU最高的bounding box作为物体检测输出，即每个格子最多只预测出一个物体。当物体占画面比例较小，如图像中包含畜群或鸟群时，每个格子包含多个物体，但却只能检测出其中一个。这是YOLO方法的一个缺陷]:</p>
+<h3 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h3><p>Yolo采用卷积网络来提取特征，然后使用全连接层来得到预测值。网络结构参考GooLeNet模型，包含24个卷积层和2个全连接层，如图所示。对于卷积层，主要使用1x1卷积来做channle reduction，然后紧跟3x3卷积。对于卷积层和全连接层，采用Leaky ReLU激活函数</p>
+<img src="image-20211015114908848.png" style="zoom:80%;" />
+
+<h3 id="网络训练"><a href="#网络训练" class="headerlink" title="网络训练"></a>网络训练</h3><ol>
+<li><p>在ImageNet数据集上进行预训练，采用YOLO模型里面的前20个卷积层+average pool层+ fc层，训练图像分辨率resize到224*224</p>
+</li>
+<li><p>用预训练得到的前20个卷积层网络参数来初始化YOLO模型前20个卷积层的网络参数，加上随机初始化的4个卷积层和2个全连接层，用VOC 20类标注数据进行YOLO模型训练。为提高图像精度，在训练检测模型时，将输入图像分辨率resize到448x448</p>
+</li>
+</ol>
+<img src="image-20211015120621860.png" style="zoom:80%;" />
+
+<p>YOLO的损失函数：</p>
+<img src="image-20211015120855050.png" style="zoom:80%;" />
+
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><p>首先Yolo各个单元格仅仅预测两个边界框，而且属于一个类别。对于小物体，Yolo的表现会不如人意。这方面的改进可以看SSD，其采用多尺度单元格。也可以看Faster R-CNN，其采用了anchor boxes。Yolo对于在物体的宽高比方面泛化率低，就是无法定位不寻常比例的物体。当然Yolo的定位不准确也是很大的问题</p>
+<h2 id="YOLOv2"><a href="#YOLOv2" class="headerlink" title="YOLOv2"></a>YOLOv2</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/35325884">https://zhuanlan.zhihu.com/p/35325884</a></p>
+<h3 id="YOLOv2的改进策略"><a href="#YOLOv2的改进策略" class="headerlink" title="YOLOv2的改进策略"></a>YOLOv2的改进策略</h3><h4 id="Batch-Normalization"><a href="#Batch-Normalization" class="headerlink" title="Batch Normalization"></a><strong>Batch Normalization</strong></h4><p>Batch Normalization可以提升模型收敛速度，而且可以起到一定正则化效果，降低模型的过拟合。在YOLOv2中，每个卷积层后面都添加了Batch Normalization层，并且不再使用droput。使用Batch Normalization后，YOLOv2的mAP提升了2.4%</p>
+<h4 id="High-Resolution-Classifier"><a href="#High-Resolution-Classifier" class="headerlink" title="High Resolution Classifier"></a><strong>High Resolution Classifier</strong></h4><p>$$<br>224<br>$$</p>
+<p>目前大部分的检测模型都会在先在ImageNet分类数据集上预训练模型的主体部分（CNN特征提取器），由于历史原因，ImageNet分类模型基本采用大小为 $ 224 \times 224 $  的图片作为输入，分辨率相对较低，不利于检测模型。所以YOLOv1在采用 <img src="https://www.zhihu.com/equation?tex=224%5Ctimes224" alt="[公式]"> 分类模型预训练后，将分辨率增加至 <img src="https://www.zhihu.com/equation?tex=448%5Ctimes448" alt="[公式]"> ，并使用这个高分辨率在检测数据集上finetune。但是直接切换分辨率，检测模型可能难以快速适应高分辨率。所以YOLOv2增加了在ImageNet数据集上使用 <img src="https://www.zhihu.com/equation?tex=448%5Ctimes448" alt="[公式]"> 输入来finetune分类网络这一中间过程（10 epochs），这可以使得模型在检测数据集上finetune之前已经适用高分辨率输入。使用高分辨率分类器后，YOLOv2的mAP提升了约4%</p>
+<h4 id="Convolutional-With-Anchor-Boxes"><a href="#Convolutional-With-Anchor-Boxes" class="headerlink" title="Convolutional With Anchor Boxes"></a><strong>Convolutional With Anchor Boxes</strong></h4><p>在YOLOv1中，输入图片最终被划分为 <img src="https://www.zhihu.com/equation?tex=7%5Ctimes7" alt="[公式]"> 网格，每个单元格预测2个边界框。YOLOv1最后采用的是全连接层直接对边界框进行预测，其中边界框的宽与高是相对整张图片大小的，而由于各个图片中存在不同尺度和长宽比（scales and ratios）的物体，YOLOv1在训练过程中学习适应不同物体的形状是比较困难的，这也导致YOLOv1在精确定位方面表现较差。YOLOv2借鉴了Faster R-CNN中RPN网络的先验框（anchor boxes，prior boxes，SSD也采用了先验框）策略。RPN对CNN特征提取器得到的特征图（feature map）进行卷积来预测每个位置的边界框以及置信度（是否含有物体），并且各个位置设置不同尺度和比例的先验框，所以RPN预测的是边界框相对于先验框的offsets值（其实是transform值，详细见<a href="https://link.zhihu.com/?target=https://arxiv.org/abs/1506.01497">Faster R_CNN论文</a>），采用先验框使得模型更容易学习。所以YOLOv2移除了YOLOv1中的全连接层而采用了卷积和anchor boxes来预测边界框。为了使检测所用的特征图分辨率更高，移除其中的一个pool层。在检测模型中，YOLOv2不是采用 <img src="https://www.zhihu.com/equation?tex=448%5Ctimes448" alt="[公式]"> 图片作为输入，而是采用 <img src="https://www.zhihu.com/equation?tex=416%5Ctimes416" alt="[公式]"> 大小。因为YOLOv2模型下采样的总步长为 <img src="https://www.zhihu.com/equation?tex=32" alt="[公式]"> ，对于 <img src="https://www.zhihu.com/equation?tex=416%5Ctimes416" alt="[公式]"> 大小的图片，最终得到的特征图大小为 <img src="https://www.zhihu.com/equation?tex=13%5Ctimes13" alt="[公式]"> ，维度是奇数，这样特征图恰好只有一个中心位置。对于一些大物体，它们中心点往往落入图片中心位置，此时使用特征图的一个中心点去预测这些物体的边界框相对容易些。所以在YOLOv2设计中要保证最终的特征图有奇数个位置。对于YOLOv1，每个cell都预测2个boxes，每个boxes包含5个值： <img src="https://www.zhihu.com/equation?tex=(x,+y,+w,+h,+c)" alt="[公式]"> ，前4个值是边界框位置与大小，最后一个值是置信度（confidence scores，包含两部分：含有物体的概率以及预测框与ground truth的IOU）。但是每个cell只预测一套分类概率值（class predictions，其实是置信度下的条件概率值）,供2个boxes共享。YOLOv2使用了anchor boxes之后，每个位置的各个anchor box都单独预测一套分类概率值，这和SSD比较类似（但SSD没有预测置信度，而是把background作为一个类别来处理）。</p>
+<p>使用anchor boxes之后，YOLOv2的mAP有稍微下降（这里下降的原因，我猜想是YOLOv2虽然使用了anchor boxes，但是依然采用YOLOv1的训练方法）。YOLOv1只能预测98个边界框（ <img src="https://www.zhihu.com/equation?tex=7%5Ctimes7%5Ctimes2" alt="[公式]"> ），而YOLOv2使用anchor boxes之后可以预测上千个边界框（ <img src="https://www.zhihu.com/equation?tex=13%5Ctimes13%5Ctimes%5Ctext%7Bnum_anchors%7D" alt="[公式]"> ）。所以使用anchor boxes之后，YOLOv2的召回率大大提升，由原来的81%升至88%。</p>
+<p>YOLOv2和SSD这两个one-stage模型与RPN网络本质上无异，只不过RPN不做类别的预测，只是简单地区分物体与背景。在two-stage方法中，RPN起到的作用是给出region proposals，其实就是作出粗糙的检测，所以另外增加了一个stage，即采用R-CNN网络来进一步提升检测的准确度（包括给出类别预测）。而对于one-stage方法，它们想要一步到位，直接采用“RPN”网络作出精确的预测，要因此要在网络设计上做很多的tricks。YOLOv2的一大创新是采用Multi-Scale Training策略，这样同一个模型其实就可以适应多种大小的图片了</p>
+<h2 id="YOLOv3"><a href="#YOLOv3" class="headerlink" title="YOLOv3"></a>YOLOv3</h2><p>YOLO3主要的改进有：调整了网络结构；利用多尺度特征进行对象检测；对象分类用Logistic取代了softmax</p>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><p>Darknet53，采用简化的residual block 取代了原来 1×1 和 3×3的block; (其实就是加了一个shortcut，也是网络加深必然所要采取的手段)。这和上一点是有关系的，v2的darknet-19变成了v3的darknet-53，为啥呢？就是需要上采样啊，卷积层的数量自然就多了，另外作者还是用了一连串的3<em>3、1</em>1卷积，3<em>3的卷积增加channel，而1</em>1的卷积在于压缩3*3卷积后的特征表示</p>
+<p>darknet-53借用了resnet的思想，在网络中加入了残差模块，这样有利于解决深层次网络的梯度问题，每个残差模块由两个卷积层和一个shortcut connections,</p>
+<p>1,2,8,8,4代表有几个*<em>重复的*</em>残差模块，整个v3结构里面，没有池化层和全连接层，网络的下采样是通过设置卷积的stride为2来达到的，每当通过这个卷积层之后，图像的尺寸就会减少一半，</p>
+<h3 id="分类损失"><a href="#分类损失" class="headerlink" title="分类损失"></a>分类损失</h3><p>在YOLOv3中，每个框用多标签分类来预测边界框可能包含的类。该算法将v2中的softmax替换成了逻辑回归loss，在训练过程中使用二值交叉熵损失来进行类别预测。对于重叠的标签，多标签方法可以更好的模拟数据</p>
+<h3 id="多尺度检测"><a href="#多尺度检测" class="headerlink" title="多尺度检测"></a>多尺度检测</h3><p>YOLOv3采用多个尺度融合的方式做预测。原来YOLOv2中有一个层叫：passthrough layer，假设最后提取的特征图尺度是13<em>13，那么这个层的作用就是将前面一层的26</em>26的特征图和本层13<em>13的特征图进行连接，有点像ResNet。这样的操作是为了加强YOLO算法对小目标检测的精度。在YOLOv3中，作者采用了类似与FPN的上采样和融合做法（最后融合了3个尺度，其他2个尺度分别是26</em>26和52*52），在多给尺度的特征图上做预测，对于小目标的提升效果还是非常明显的。虽然在YOLOv3中每个网格预测3个边界框，比v2中的5个要少，但v3采用了多个尺度的特征融合，所以边界框的数量也比之前多很多</p>
+<p>对于多尺度检测来说，采用多个尺度进行预测，具体形式是在网络预测的最后某些层进行上采样拼接的操作来达到；对于分辨率对预测的影响如下解释：</p>
+<p>分辨率信息直接反映的就是构成object的像素的数量。一个object，像素数量越多，它对object的细节表现就越丰富越具体，也就是说分辨率信息越丰富。这也就是为什么大尺度feature map提供的是分辨率信息了。语义信息在目标检测中指的是让object区分于背景的信息，即语义信息是让你知道这个是object，其余是背景。在不同类别中语义信息并不需要很多细节信息，分辨率信息大，反而会降低语义信息，因此小尺度feature map在提供必要的分辨率信息下语义信息会提供的更好。(而对于小目标，小尺度feature map无法提供必要的分辨率信息，所以还需结合大尺度的feature map)</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#YOLO"><span class="toc-number">1.</span> <span class="toc-text">YOLO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLOv1"><span class="toc-number">1.1.</span> <span class="toc-text">YOLOv1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5"><span class="toc-number">1.1.1.</span> <span class="toc-text">设计理念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83"><span class="toc-number">1.1.3.</span> <span class="toc-text">网络训练</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.1.4.</span> <span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLOv2"><span class="toc-number">1.2.</span> <span class="toc-text">YOLOv2</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#YOLOv2%E7%9A%84%E6%94%B9%E8%BF%9B%E7%AD%96%E7%95%A5"><span class="toc-number">1.2.1.</span> <span class="toc-text">YOLOv2的改进策略</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Batch-Normalization"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">Batch Normalization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#High-Resolution-Classifier"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">High Resolution Classifier</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Convolutional-With-Anchor-Boxes"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">Convolutional With Anchor Boxes</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YOLOv3"><span class="toc-number">1.3.</span> <span class="toc-text">YOLOv3</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C"><span class="toc-number">1.3.1.</span> <span class="toc-text">网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%B1%BB%E6%8D%9F%E5%A4%B1"><span class="toc-number">1.3.2.</span> <span class="toc-text">分类损失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%B0%BA%E5%BA%A6%E6%A3%80%E6%B5%8B"><span class="toc-number">1.3.3.</span> <span class="toc-text">多尺度检测</span></a></li></ol></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/81f7a2c4eee7/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/81f7a2c4eee7/&text=YOLO"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/81f7a2c4eee7/&is_video=false&description=YOLO"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=YOLO&body=Check out this article: http://example.com/archives/81f7a2c4eee7/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/81f7a2c4eee7/&title=YOLO"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/81f7a2c4eee7/&name=YOLO&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/81f7a2c4eee7/&t=YOLO"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    Qi
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="external nofollow noopener noreferrer">豫ICP备2022004851号</a>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- Typed -->
+
+<script src="/lib/typed/typed.js"></script>
+
+
+<script src="/lib/typed/typed.min.js"></script>
+
+
+<!-- busuanzi -->
+<!--
+<script src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+-->
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
