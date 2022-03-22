@@ -1280,11 +1280,11 @@ article .content .caption {
 #footer a {
   color: #666;
   text-decoration: none;
-  background-image: linear-gradient(transparent, transparent 5px, #666 5px, #666);
+  background-image: linear-gradient(transparent, transparent 6px, #666 6px, #666);
   background-position: bottom;
   background-size: 100% 6px;
   background-repeat: repeat-x;
-  padding: 2px 0;
+  padding: 3px 0;
 }
 #footer a:hover {
   color: #858585;
