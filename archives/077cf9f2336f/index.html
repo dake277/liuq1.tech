@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="获取node链接node官网 复制下载链接，选择 Linux Binaries (x64) 编译好的二进制文件（注意不要选择Souce code源码文件，该文件需要gcc-c++编译才能使用）   获取node链接Linux上远程下载并解压node压缩包12cd &#x2F;usr&#x2F;localwget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v16.14.2&#x2F;node-v16.14.2-linux-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 配置Node环境">
+<meta property="og:url" content="http://example.com/archives/077cf9f2336f/index.html">
+<meta property="og:site_name" content="Qi Blog">
+<meta property="og:description" content="获取node链接node官网 复制下载链接，选择 Linux Binaries (x64) 编译好的二进制文件（注意不要选择Souce code源码文件，该文件需要gcc-c++编译才能使用）   获取node链接Linux上远程下载并解压node压缩包12cd &#x2F;usr&#x2F;localwget https:&#x2F;&#x2F;nodejs.org&#x2F;dist&#x2F;v16.14.2&#x2F;node-v16.14.2-linux-">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/archives/077cf9f2336f/2022-03-24%20221554.png">
+<meta property="article:published_time" content="2022-03-24T14:04:00.000Z">
+<meta property="article:modified_time" content="2022-03-24T14:55:32.078Z">
+<meta property="article:author" content="Qi">
+<meta property="article:tag" content="环境配置">
+<meta property="article:tag" content="Node">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/archives/077cf9f2336f/2022-03-24%20221554.png">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/monster-icon.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/monster-icon.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/monster-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Linux 配置Node环境</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/archives/cee4fe669d40/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/archives/81f7a2c4eee7/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/077cf9f2336f/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/077cf9f2336f/&text=Linux 配置Node环境"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/077cf9f2336f/&is_video=false&description=Linux 配置Node环境"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux 配置Node环境&body=Check out this article: http://example.com/archives/077cf9f2336f/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/077cf9f2336f/&name=Linux 配置Node环境&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/077cf9f2336f/&t=Linux 配置Node环境"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96node%E9%93%BE%E6%8E%A5"><span class="toc-number">1.</span> <span class="toc-text">获取node链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96node%E9%93%BE%E6%8E%A5Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8Bnode%E5%8E%8B%E7%BC%A9%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text">获取node链接Linux上远程下载并解压node压缩包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%BD%AF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%BF%E5%85%B6%E8%83%BD%E5%85%A8%E5%B1%80%E8%AE%BF%E9%97%AE"><span class="toc-number">3.</span> <span class="toc-text">添加软连接，使其能全局访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pm2%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cnode%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">pm2后台运行node进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85pm2"><span class="toc-number">4.1.</span> <span class="toc-text">安装pm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BApm2%E5%91%BD%E4%BB%A4%E5%BB%BA%E7%AB%8B%E8%BD%AF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%85%A8%E5%B1%80%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">为pm2命令建立软连接，使其全局使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pm2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">4.3.</span> <span class="toc-text">pm2常用命令</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Linux 配置Node环境
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Qi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2022-03-24T14:04:00.000Z" itemprop="datePublished">2022-03-24</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/Node/" rel="tag">Node</a>, <a class="tag-link-link" href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" rel="tag">环境配置</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content_a" itemprop="articleBody">
+    <h2 id="获取node链接"><a href="#获取node链接" class="headerlink" title="获取node链接"></a>获取node链接</h2><p><a target="_blank" rel="noopener" href="https://nodejs.org/en/download/">node官网</a> 复制下载链接，选择 Linux Binaries (x64) 编译好的二进制文件（注意不要选择Souce code源码文件，该文件需要gcc-c++编译才能使用）</p>
+<img src="2022-03-24 221554.png" style="zoom:80%"/>
+
+<h2 id="获取node链接Linux上远程下载并解压node压缩包"><a href="#获取node链接Linux上远程下载并解压node压缩包" class="headerlink" title="获取node链接Linux上远程下载并解压node压缩包"></a>获取node链接Linux上远程下载并解压node压缩包</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/local</span><br><span class="line">wget https://nodejs.org/dist/v16.14.2/node-v16.14.2-linux-x64.tar.xz</span><br></pre></td></tr></table></figure>
+<p>下载完成之后，/usr/local 目录下就有了node的压缩包，该文件经过了xz和tar两层压缩，我们解压需要解两次：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xz -d node-v16.14.2-linux-x64.tar.xz</span><br><span class="line">tar -xf node-v16.14.2-linux-x64.tar</span><br></pre></td></tr></table></figure>
+<p>进入压缩之后的 node-v16.14.2-linux-x64 目录下的bin：</p>
+<img src= "2022-03-24 223608.png" style="zoom:60%" />
+
+<h2 id="添加软连接，使其能全局访问"><a href="#添加软连接，使其能全局访问" class="headerlink" title="添加软连接，使其能全局访问"></a>添加软连接，使其能全局访问</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/node-v16.14.2-linux-x64/bin/node /usr/local/bin/node</span><br><span class="line">ln -s /usr/local/node-v16.14.2-linux-x64/bin/npm /usr/local/bin/npm</span><br></pre></td></tr></table></figure>
+
+<p>查看版本：</p>
+<img src= "2022-03-24 224106.png" style="zoom:60%" />
+
+<h2 id="pm2后台运行node进程"><a href="#pm2后台运行node进程" class="headerlink" title="pm2后台运行node进程"></a>pm2后台运行node进程</h2><h3 id="安装pm2"><a href="#安装pm2" class="headerlink" title="安装pm2"></a>安装pm2</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i pm2 -g</span><br></pre></td></tr></table></figure>
+<h3 id="为pm2命令建立软连接，使其全局使用"><a href="#为pm2命令建立软连接，使其全局使用" class="headerlink" title="为pm2命令建立软连接，使其全局使用"></a>为pm2命令建立软连接，使其全局使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/node-v16.14.2-linux-x64/bin/pm2 /usr/local/bin/pm2</span><br></pre></td></tr></table></figure>
+<h3 id="pm2常用命令"><a href="#pm2常用命令" class="headerlink" title="pm2常用命令"></a>pm2常用命令</h3><p>开启关闭：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pm2 start server.js     #启动server.js进程</span><br><span class="line">pm2 start server.js -i 4   #启动4个server.js进程</span><br><span class="line">pm2 restart server.js   #重启server.js进程</span><br><span class="line">pm2 stop all    #停止所有进程</span><br><span class="line">pm2 stop server.js   #停止server.js进程</span><br><span class="line">pm2 stop 0   #停止编号为0的进程</span><br></pre></td></tr></table></figure>
+<p>查看：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pm2 list    #查看当前正在运行的进程</span><br><span class="line">pm2 show 0   #查看执行编号为0的进程</span><br></pre></td></tr></table></figure>
+<p>停止、重启、重载、删除：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pm2 stop all  #停止PM2列表中所有的进程</span><br><span class="line">pm2 stop 0    #停止PM2列表中进程为0的进程</span><br><span class="line">pm2 reload all    #重载PM2列表中所有的进程</span><br><span class="line">pm2 reload 0     #重载PM2列表中进程为0的进程</span><br><span class="line">pm2 restart all     #重启PM2列表中所有的进程</span><br><span class="line">pm2 restart 0      #重启PM2列表中进程为0的进程</span><br><span class="line">pm2 delete 0     #删除PM2列表中进程为0的进程</span><br><span class="line">pm2 delete all   #删除PM2列表中所有的进程</span><br></pre></td></tr></table></figure>
+<p>实时监控：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pm2 monit   #监控当前所有的进程</span><br><span class="line">pm2 monit 0   #监控批评行编号为0的进程</span><br><span class="line">pm2 monit server.js   #监控名称为server.js的进程</span><br></pre></td></tr></table></figure>
+
+<p>日志：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pm2 logs   #显示所有日志</span><br><span class="line">pm2 logs 0   #显示执行编号为0的日志</span><br><span class="line">pm2 logs server.js   #显示名称为server.js的进程</span><br><span class="line">pm2 flush    #清洗所有的数据</span><br></pre></td></tr></table></figure>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96node%E9%93%BE%E6%8E%A5"><span class="toc-number">1.</span> <span class="toc-text">获取node链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96node%E9%93%BE%E6%8E%A5Linux%E4%B8%8A%E8%BF%9C%E7%A8%8B%E4%B8%8B%E8%BD%BD%E5%B9%B6%E8%A7%A3%E5%8E%8Bnode%E5%8E%8B%E7%BC%A9%E5%8C%85"><span class="toc-number">2.</span> <span class="toc-text">获取node链接Linux上远程下载并解压node压缩包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%BD%AF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%BF%E5%85%B6%E8%83%BD%E5%85%A8%E5%B1%80%E8%AE%BF%E9%97%AE"><span class="toc-number">3.</span> <span class="toc-text">添加软连接，使其能全局访问</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pm2%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8Cnode%E8%BF%9B%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">pm2后台运行node进程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85pm2"><span class="toc-number">4.1.</span> <span class="toc-text">安装pm2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BApm2%E5%91%BD%E4%BB%A4%E5%BB%BA%E7%AB%8B%E8%BD%AF%E8%BF%9E%E6%8E%A5%EF%BC%8C%E4%BD%BF%E5%85%B6%E5%85%A8%E5%B1%80%E4%BD%BF%E7%94%A8"><span class="toc-number">4.2.</span> <span class="toc-text">为pm2命令建立软连接，使其全局使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pm2%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">4.3.</span> <span class="toc-text">pm2常用命令</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/077cf9f2336f/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/077cf9f2336f/&text=Linux 配置Node环境"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/077cf9f2336f/&is_video=false&description=Linux 配置Node环境"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Linux 配置Node环境&body=Check out this article: http://example.com/archives/077cf9f2336f/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/077cf9f2336f/&title=Linux 配置Node环境"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/077cf9f2336f/&name=Linux 配置Node环境&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/077cf9f2336f/&t=Linux 配置Node环境"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    Qi
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="external nofollow noopener noreferrer">豫ICP备2022004851号</a>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a href="/projects_url">项目</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- Typed -->
+
+<script src="/lib/typed/typed.js"></script>
+
+
+<script src="/lib/typed/typed.min.js"></script>
+
+
+<!-- busuanzi -->
+<!--
+<script src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+-->
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

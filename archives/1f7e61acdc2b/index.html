@@ -151,7 +151,7 @@
   </header>
   
 
-  <div class="content" itemprop="articleBody">
+  <div class="content_a" itemprop="articleBody">
     <p>为 Express 配置 ssl 证书，因为自己网站是 https 页面，chrome等浏览器在https页面中发送http请求会有 <strong>block:mixed-content</strong>  错误(浏览器阻止https发送http请求)，有以下解决方案：</p>
 <p><strong>方法一.</strong>  在主页面的head中加入下面代码（将调用的http请求升级成https请求并调用）:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta http-equiv&#x3D;&quot;Content-Security-Policy&quot; content&#x3D;&quot;upgrade-insecure-requests&quot;&gt;</span><br></pre></td></tr></table></figure>

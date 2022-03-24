@@ -145,7 +145,7 @@
   </header>
   
 
-  <div class="content" itemprop="articleBody">
+  <div class="content_a" itemprop="articleBody">
     <h2 id="为什么要清除浮动"><a href="#为什么要清除浮动" class="headerlink" title="为什么要清除浮动"></a>为什么要清除浮动</h2><p>在非IE浏览器（如Firefox）下，当容器的高度为auto，且容器的内容中有浮动（float为left或right）的元素，在这种情况下，容器的高度不能自动伸长以适应内容的高度，使得内容溢出到容器外面而影响（甚至破坏）布局的现象。这个现象叫浮动溢出，为了防止这个现象的出现而进行的CSS处理，就叫CSS清除浮动。<strong>父级元素没有关闭浮动的子元素</strong></p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>一般给父级元素一个高度</p>
 <h3 id="1、父级div定义overflow-hidden"><a href="#1、父级div定义overflow-hidden" class="headerlink" title="1、父级div定义overflow:hidden"></a><strong>1、父级div定义overflow:hidden</strong></h3><p>给浮动元素的容器添加overflow:hidden;或overflow:auto;可以清除浮动，另外在 IE6 中还需要触发 hasLayout ，例如为父元素设置容器宽高或设置 zoom:1。</p>
