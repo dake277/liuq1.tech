@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="标准文档流文档流指的是在元素排版布局过程中，元素会默认从左到右，从上往下的流式布局方式，并最终窗体自上而下分成一行行，并在每行中从左至右的顺序排放元素，当前面内容发生了变化，后面的内容位置也会随着发生变化。 标准文档流的微观现象 空白折叠现象。（ HTML中所有的文字之间,如果有空格、换行、tab在浏览器加载时，连在一起的空白都将被折叠为一个空格显示。） 文字类的元素如果排在一行会出现一种高低不齐">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS标准文档流">
+<meta property="og:url" content="http://example.com/archives/bbd5feac45ec/index.html">
+<meta property="og:site_name" content="Qi Blog">
+<meta property="og:description" content="标准文档流文档流指的是在元素排版布局过程中，元素会默认从左到右，从上往下的流式布局方式，并最终窗体自上而下分成一行行，并在每行中从左至右的顺序排放元素，当前面内容发生了变化，后面的内容位置也会随着发生变化。 标准文档流的微观现象 空白折叠现象。（ HTML中所有的文字之间,如果有空格、换行、tab在浏览器加载时，连在一起的空白都将被折叠为一个空格显示。） 文字类的元素如果排在一行会出现一种高低不齐">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-29T11:10:43.000Z">
+<meta property="article:modified_time" content="2022-03-29T12:21:47.322Z">
+<meta property="article:author" content="Qi">
+<meta property="article:tag" content="CSS">
+<meta name="twitter:card" content="summary">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/monster-icon.png">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/monster-icon.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/monster-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>CSS标准文档流</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <!-- persian styles -->
+    
+      
+<link rel="stylesheet" href="/css/rtl.css">
+
+    
+    <!-- rss -->
+    
+    
+<meta name="generator" content="Hexo 5.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#" class="active"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu" style="visibility: visible;">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/dake277">仓库</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/archives/4debc858b558/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">上一篇</span>
+      <span id="i-next" class="info" style="display:none;">下一篇</span>
+      <span id="i-top" class="info" style="display:none;">返回顶部</span>
+      <span id="i-share" class="info" style="display:none;">分享文章</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/bbd5feac45ec/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/bbd5feac45ec/&text=CSS标准文档流"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/bbd5feac45ec/&is_video=false&description=CSS标准文档流"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS标准文档流&body=Check out this article: http://example.com/archives/bbd5feac45ec/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/bbd5feac45ec/&name=CSS标准文档流&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/bbd5feac45ec/&t=CSS标准文档流"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">标准文档流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81%E7%9A%84%E5%BE%AE%E8%A7%82%E7%8E%B0%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">标准文档流的微观现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81%E7%AD%89%E7%BA%A7"><span class="toc-number">3.</span> <span class="toc-text">标准文档流等级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8Fdisplay"><span class="toc-number">3.1.</span> <span class="toc-text">显示模式display</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%B1%E7%A6%BB%E6%96%87%E6%A1%A3%E6%B5%81"><span class="toc-number">3.2.</span> <span class="toc-text">脱离文档流</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CSS标准文档流
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Qi</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-03-29T11:10:43.000Z" itemprop="datePublished">2020-03-29</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link-link" href="/tags/CSS/" rel="tag">CSS</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="标准文档流"><a href="#标准文档流" class="headerlink" title="标准文档流"></a>标准文档流</h2><p>文档流指的是在元素排版布局过程中，元素会默认从左到右，从上往下的流式布局方式，并最终窗体自上而下分成一行行，并在每行中从左至右的顺序排放元素，当前面内容发生了变化，后面的内容位置也会随着发生变化。</p>
+<h2 id="标准文档流的微观现象"><a href="#标准文档流的微观现象" class="headerlink" title="标准文档流的微观现象"></a>标准文档流的微观现象</h2><ol>
+<li>空白折叠现象。（ HTML中所有的文字之间,如果有空格、换行、tab在浏览器加载时，连在一起的空白都将被折叠为一个空格显示。）</li>
+<li>文字类的元素如果排在一行会出现一种高低不齐、底边对齐效果。</li>
+<li>自动换行，元素内一行内容写满元素的width时会自动进行换行。</li>
+</ol>
+<h2 id="标准文档流等级"><a href="#标准文档流等级" class="headerlink" title="标准文档流等级"></a>标准文档流等级</h2><p><strong>分为两种等级：块内元素和行内元素</strong></p>
+<p><strong>块内元素：</strong></p>
+<ul>
+<li>独占一行，不与其他元素并列</li>
+<li>可以设置宽高，如果不设置宽度，宽度会默认变为父亲的100%，高度会被内容自动撑开。</li>
+</ul>
+<p><strong>行内元素：</strong></p>
+<ul>
+<li>能与其他行内元素或行内块元素并排显示</li>
+<li>无论是否被设置宽高，其宽度和高度只能被内容撑开</li>
+</ul>
+<p><strong>行内块元素</strong></p>
+<ul>
+<li>可以设置宽高，如果不设置宽高，要么以原始尺寸加载，要么被内容自动撑开</li>
+<li>能与其他的行内和行内块元素并排一行显示</li>
+</ul>
+<p>在HTML中，标签分为<font color='#2bbc8a'> 文本级 </font>和<font color='#2bbc8a'> 容器级 </font>，容器级的标签里面可以放置任何东西，文本级的标签，里面只能放置文字、图片、表单元素；</p>
+<p>常见的块状元素有：div、p、h1…h6、ol、ul、dl、table、address、blockquote、form等。大部分是容器级标签。<br>常见的行内元素有：a、span、i、em、strong、label等。大部分是文本级标签。<br>常见的行内块级元素有:img、input等。</p>
+<p><strong>注：p标签是一个文本级标签。p里面只能放文字、图片、表单元素。其他的一律不能放。</strong></p>
+<h3 id="显示模式display"><a href="#显示模式display" class="headerlink" title="显示模式display"></a>显示模式display</h3><p>标准流中的元素有自己默认的浏览器加载模式，但是加载模式不是一成不变的，可以通过display属性更改一个标签的显示模式。</p>
+<h3 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h3><p>display 属性更改的显示模式并没有改变标准流本质性质，页面还是只能从上往下 加载，存在空白折叠现象等微观性质。要想实现更多的界面布局效果需要脱离标准流的限制。</p>
+<p>css中有三种手段可以使一个元素脱离标准文档流，分别为浮动和绝对定位,固定定位</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/sinat_22480443/article/details/111032878">标准文档流</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/dake277">仓库</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81"><span class="toc-number">1.</span> <span class="toc-text">标准文档流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81%E7%9A%84%E5%BE%AE%E8%A7%82%E7%8E%B0%E8%B1%A1"><span class="toc-number">2.</span> <span class="toc-text">标准文档流的微观现象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E6%96%87%E6%A1%A3%E6%B5%81%E7%AD%89%E7%BA%A7"><span class="toc-number">3.</span> <span class="toc-text">标准文档流等级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%A8%A1%E5%BC%8Fdisplay"><span class="toc-number">3.1.</span> <span class="toc-text">显示模式display</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%84%B1%E7%A6%BB%E6%96%87%E6%A1%A3%E6%B5%81"><span class="toc-number">3.2.</span> <span class="toc-text">脱离文档流</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/bbd5feac45ec/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/bbd5feac45ec/&text=CSS标准文档流"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/bbd5feac45ec/&is_video=false&description=CSS标准文档流"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CSS标准文档流&body=Check out this article: http://example.com/archives/bbd5feac45ec/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/bbd5feac45ec/&title=CSS标准文档流"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/bbd5feac45ec/&name=CSS标准文档流&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/bbd5feac45ec/&t=CSS标准文档流"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> 菜单</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> 目录</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> 分享</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> 返回顶部</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2020-2022
+    Qi
+    <a href="https://beian.miit.gov.cn" target="_blank" rel="external nofollow noopener noreferrer">豫ICP备2022004851号</a>
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/categories/">分类</a></li>
+         
+          <li><a href="/archives/">归档</a></li>
+         
+          <li><a target="_blank" rel="noopener" href="https://github.com/dake277">仓库</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+    <!-- jquery -->
+
+<script src="/lib/jquery/jquery.min.js"></script>
+
+
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- Typed -->
+
+<script src="/lib/typed/typed.js"></script>
+
+
+<script src="/lib/typed/typed.min.js"></script>
+
+
+<!-- busuanzi -->
+<!--
+<script src="//cdn.busuanzi.ibruce.info/cdn/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+-->
+
+<script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<!-- clipboard -->
+
+  
+<script src="/lib/clipboard/clipboard.min.js"></script>
+
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"复制到粘贴板!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "复制成功!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>

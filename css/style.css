@@ -1095,7 +1095,6 @@ article header .postdate {
 }
 article .content a {
   color: #c9cacc;
-  padding: 0;
 }
 article .content a:hover {
   color: #2bbc8a;
@@ -1389,16 +1388,21 @@ article .content .caption {
   padding-bottom: 0.5em;
   color: #c9cacc;
 }
+#tag-cloud {
+  width: 500px;
+  margin-bottom: 20px;
+  margin-left: 7px;
+}
 #tag-cloud .tag-cloud-title {
   color: #666;
 }
 #tag-cloud .tag-cloud-tags {
   clear: both;
-  text-align: center;
 }
 #tag-cloud .tag-cloud-tags a {
   display: inline-block;
-  margin: 10px;
+  background-size: 100% 5px;
+  padding: 0;
 }
 .tooltipped {
   position: relative;
@@ -1504,8 +1508,14 @@ article .content .caption {
 #categories .category-list-title {
   color: #666;
 }
+#categories .category-list {
+  padding-left: 8px;
+}
 #categories .category-list .category-list-item {
   padding-bottom: 0.5em;
+}
+#categories .category-list .category-list-item a {
+  background-size: 100% 6px;
 }
 #categories .category-list .category-list-item .category-list-count {
   color: #666;

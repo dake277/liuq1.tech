@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="单线程">
+    <meta name="description" content="单线程单线程指的是，JavaScript 只在一个线程上运行。也就是说，JavaScript 同时只能执行一个任务，其他任务都必须在后面排队等待 为什么JS要设计成单线程？ js作为浏览器脚本语言，主要用途就是操作dom实现用户与浏览器的交互，为了避免操作dom冲突那么单线程就比较合适。如果JavaScript是多线程，当页面更新内容的时候、用户又触发了交互，这时候线程间的同步问题会变得很复杂，虽">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的同步与异步">
 <meta property="og:url" content="http://example.com/archives/7fd8b1d99ce0/index.html">
 <meta property="og:site_name" content="Qi Blog">
-<meta property="og:description" content="单线程">
+<meta property="og:description" content="单线程单线程指的是，JavaScript 只在一个线程上运行。也就是说，JavaScript 同时只能执行一个任务，其他任务都必须在后面排队等待 为什么JS要设计成单线程？ js作为浏览器脚本语言，主要用途就是操作dom实现用户与浏览器的交互，为了避免操作dom冲突那么单线程就比较合适。如果JavaScript是多线程，当页面更新内容的时候、用户又触发了交互，这时候线程间的同步问题会变得很复杂，虽">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-07-26T04:48:59.000Z">
-<meta property="article:modified_time" content="2022-03-28T14:16:18.517Z">
+<meta property="article:modified_time" content="2022-03-29T09:06:23.487Z">
 <meta property="article:author" content="Qi">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
@@ -108,7 +108,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">单线程</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">单线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-number">2.</span> <span class="toc-text">同步与异步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.1.</span> <span class="toc-text">任务队列和事件循环</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -157,7 +157,41 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2>
+    <h2 id="单线程"><a href="#单线程" class="headerlink" title="单线程"></a>单线程</h2><p>单线程指的是，JavaScript 只在一个线程上运行。也就是说，JavaScript 同时只能执行一个任务，其他任务都必须在后面排队等待</p>
+<p><strong>为什么JS要设计成单线程？</strong></p>
+<p>js作为浏览器脚本语言，主要用途就是操作dom实现用户与浏览器的交互，为了避免操作dom冲突那么单线程就比较合适。如果JavaScript是多线程，当页面更新内容的时候、用户又触发了交互，这时候线程间的同步问题会变得很复杂，虽然可以使用多线程再加一些锁的概念可以来避免冲突，但这样会增加语言的复杂性，同时会增加额外的内存开销。所以js在一开始设计的时候就被设计成了单线程。</p>
+<p>单线程虽然对 JavaScript 构成了很大的限制，但也因此使它具备了其他语言不具备的优势。如果用得好，JavaScript 程序是不会出现堵塞的，这就是为什么 Node 可以用很少的资源，应付大流量访问的原因。<br>为了利用多核 CPU 的计算能力，HTML5 提出 Web Worker 标准，允许 JavaScript 脚本创建多个线程，但是子线程完全受主线程控制，且不得操作 DOM。所以，这个新标准并没有改变 JavaScript 单线程的本质</p>
+<h2 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h2><ul>
+<li>同步任务：在主线程上排队执行的任务，只有前一个任务执行完毕，才能执行后一个任务。</li>
+<li>异步任务：在主线程执行顺序任务时，异步任务不进入主线程，使用<strong>任务队列</strong>存放异步任务，当<strong>任务队列</strong>通知主进程，某个异步任务可以执行了，该任务才会进入主线程执行。</li>
+</ul>
+<p><strong>为什么会存在异步任务？</strong></p>
+<p>因为js是单线程的，如果只有同步任务，所有任务都是在单线程中执行的，所以每次只能执行一个任务，而其它任务都处于等待状态，从而造成下一个任务等待较长时间，通过异步任务就可以很好的解决这个问题。</p>
+<h3 id="任务队列和事件循环"><a href="#任务队列和事件循环" class="headerlink" title="任务队列和事件循环"></a>任务队列和事件循环</h3><p>JavaScript 运行时，除了一个正在运行的主线程，引擎还提供一个任务队列（task queue），里面是各种需要当前程序处理的异步任务。（实际上，根据异步任务的类型，存在多个任务队列。为了方便理解，这里假设只存在一个队列。）<br>首先，主线程会去执行所有的同步任务。等到同步任务全部执行完，就会去看任务队列里面的异步任务。如果满足条件，那么异步任务就重新进入主线程开始执行，这时它就变成同步任务了。等到执行完，下一个异步任务再进入主线程开始执行。一旦任务队列清空，程序就结束执行。<br>异步任务的写法通常是回调函数。一旦异步任务重新进入主线程，就会执行对应的回调函数。如果一个异步任务没有回调函数，就不会进入任务队列，也就是说，不会重新进入主线程，因为没有用回调函数指定下一步的操作。<br>JavaScript 引擎怎么知道异步任务有没有结果，能不能进入主线程呢？答案就是引擎在不停地检查，一遍又一遍，只要同步任务执行完了，引擎就会去检查那些挂起来的异步任务，是不是可以进入主线程了。这种循环检查的机制，就叫做事件循环 (Event Loop)<br>任务队列又分为<font color='#2bbc8a'> macro-task（宏任务）</font>与 <font color='#2bbc8a'> micro-task（微任务）</font></p>
+<p>宏任务主要指的是任务队列中的这些任务，主要包含以下几类：</p>
+<ul>
+<li>script(整体代码)</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate(Node独有)</li>
+<li>I/O</li>
+<li>UI render</li>
+</ul>
+<p>微任务就是一个需要异步执行的函数，执行时机是在主函数执行结束之后、当前宏任务结束之前，主要包含以下几类：（注：微任务解决的是实时性问题）</p>
+<ul>
+<li>process.nextTick(Node独有)：将callback添加到下一个时间点的队列</li>
+<li>Promise以及以Promise为基础开发出来的其它技术（注意：当调用Prommise.resolve()或者Promise.reject()的时候也会产生微任务）</li>
+<li>Async/Await(实际就是promise)</li>
+<li>MutationObserver(html5新特性)：使用MutationObserver监控某个DOM节点，当DOM节点发生变化时，就会产生DOM变化记录的微任务</li>
+</ul>
+<p>任务队列执行步骤：</p>
+<ol>
+<li>获取一个宏任务开始执行，在执行时先创建一个微任务队列，当遇到微任务的时候将微任务放到微<br>任务队列；</li>
+<li>接着获取微任务队列中的所有微任务，然后依次执行（注：在执行微任务的时候产生的微任务将放<br>到微任务的队列的尾部，在本次循环中执行完毕）</li>
+<li>循环执行该过程。</li>
+</ol>
+<p><strong>总结：</strong>执行宏任务，然后执行该宏任务产生的微任务，若微任务在执行过程中产生了新的微任务，则继续执行微任务，微任务执行完毕后，再回到宏任务中进行下一轮循环</p>
+
   </div>
 </article>
 
@@ -182,7 +216,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">单线程</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E7%BA%BF%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">单线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5"><span class="toc-number">2.</span> <span class="toc-text">同步与异步</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E9%98%9F%E5%88%97%E5%92%8C%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF"><span class="toc-number">2.1.</span> <span class="toc-text">任务队列和事件循环</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
