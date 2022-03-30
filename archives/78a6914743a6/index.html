@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="sass-loader安装问题sass-loader 和node-loader版本要相匹配，否则安装时会报错 下拉菜单制作菜单制作时用 : hover时注意，出现的菜单下拉项要和选项紧密贴合或有覆盖，否者会导致鼠标无法移动到下拉菜单上 需要下拉菜单和选项有空隙时，可以使用div嵌套，大盒子紧密覆盖，不设颜色，小盒子向下挤，padding-top 相对定位positon: absolute 如果没有">
+    <meta name="description" content="sass-loader安装问题sass-loader 和node-loader版本要相匹配，否则安装时会报错 下拉菜单制作菜单制作时用 : hover时注意，出现的菜单下拉项要和选项紧密贴合或有覆盖，否者会导致鼠标无法移动到下拉菜单上 需要下拉菜单和选项有空隙时，可以使用div嵌套，大盒子紧密覆盖，不设颜色，小盒子向下挤，padding-top vertical-align: middle可以解决">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端开发常见问题">
 <meta property="og:url" content="http://example.com/archives/78a6914743a6/index.html">
 <meta property="og:site_name" content="Qi Blog">
-<meta property="og:description" content="sass-loader安装问题sass-loader 和node-loader版本要相匹配，否则安装时会报错 下拉菜单制作菜单制作时用 : hover时注意，出现的菜单下拉项要和选项紧密贴合或有覆盖，否者会导致鼠标无法移动到下拉菜单上 需要下拉菜单和选项有空隙时，可以使用div嵌套，大盒子紧密覆盖，不设颜色，小盒子向下挤，padding-top 相对定位positon: absolute 如果没有">
+<meta property="og:description" content="sass-loader安装问题sass-loader 和node-loader版本要相匹配，否则安装时会报错 下拉菜单制作菜单制作时用 : hover时注意，出现的菜单下拉项要和选项紧密贴合或有覆盖，否者会导致鼠标无法移动到下拉菜单上 需要下拉菜单和选项有空隙时，可以使用div嵌套，大盒子紧密覆盖，不设颜色，小盒子向下挤，padding-top vertical-align: middle可以解决">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-05T13:40:30.000Z">
-<meta property="article:modified_time" content="2022-03-29T08:48:08.190Z">
+<meta property="article:modified_time" content="2022-03-30T09:28:24.850Z">
 <meta property="article:author" content="Qi">
 <meta name="twitter:card" content="summary">
     
@@ -107,7 +107,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass-loader%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">sass-loader安装问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%88%B6%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">下拉菜单制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-number">3.</span> <span class="toc-text">相对定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vertical-align-middle"><span class="toc-number">4.</span> <span class="toc-text">vertical-align: middle</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass-loader%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">sass-loader安装问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%88%B6%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">下拉菜单制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vertical-align-middle"><span class="toc-number">3.</span> <span class="toc-text">vertical-align: middle</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -154,8 +154,6 @@
     <h2 id="sass-loader安装问题"><a href="#sass-loader安装问题" class="headerlink" title="sass-loader安装问题"></a>sass-loader安装问题</h2><p>sass-loader 和node-loader版本要相匹配，否则安装时会报错</p>
 <h2 id="下拉菜单制作"><a href="#下拉菜单制作" class="headerlink" title="下拉菜单制作"></a>下拉菜单制作</h2><p>菜单制作时用 : hover时注意，出现的菜单下拉项要和选项紧密贴合或有覆盖，否者会导致鼠标无法移动到下拉菜单上</p>
 <p>需要下拉菜单和选项有空隙时，可以使用div嵌套，大盒子紧密覆盖，不设颜色，小盒子向下挤，padding-top</p>
-<h2 id="相对定位"><a href="#相对定位" class="headerlink" title="相对定位"></a>相对定位</h2><p>positon: absolute</p>
-<p>如果没有设置top、left等属性，</p>
 <h2 id="vertical-align-middle"><a href="#vertical-align-middle" class="headerlink" title="vertical-align: middle"></a>vertical-align: middle</h2><p>可以解决img等行内元素对齐白边问题，垂直对齐</p>
 
   </div>
@@ -182,7 +180,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass-loader%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">sass-loader安装问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%88%B6%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">下拉菜单制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%AF%B9%E5%AE%9A%E4%BD%8D"><span class="toc-number">3.</span> <span class="toc-text">相对定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vertical-align-middle"><span class="toc-number">4.</span> <span class="toc-text">vertical-align: middle</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sass-loader%E5%AE%89%E8%A3%85%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">sass-loader安装问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E6%8B%89%E8%8F%9C%E5%8D%95%E5%88%B6%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">下拉菜单制作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#vertical-align-middle"><span class="toc-number">3.</span> <span class="toc-text">vertical-align: middle</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
