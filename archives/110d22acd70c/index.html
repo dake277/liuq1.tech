@@ -9,12 +9,12 @@
     <meta name="description" content="对于某区域的拖动功能主要用到mousedown，mousemove和mouseup事件，经常出现 mouseup 事件丢失的情况，由于缺少了 mouseup 事件，导致一个完整的操作无法进行 原因 触发了浏览器的 drag 操作，导致mouseup丢失 由于鼠标离开了操作的区域，触发了mouseleave导致mouseup丢失  解决方法 通过执行下面的代码阻止系统默认的操作来防止触发 drag">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实现拖拽功能中mouseup事件丢失问题">
-<meta property="og:url" content="http://example.com/archives/d53b1525748a/index.html">
+<meta property="og:url" content="http://example.com/archives/110d22acd70c/index.html">
 <meta property="og:site_name" content="Qi Blog">
 <meta property="og:description" content="对于某区域的拖动功能主要用到mousedown，mousemove和mouseup事件，经常出现 mouseup 事件丢失的情况，由于缺少了 mouseup 事件，导致一个完整的操作无法进行 原因 触发了浏览器的 drag 操作，导致mouseup丢失 由于鼠标离开了操作的区域，触发了mouseleave导致mouseup丢失  解决方法 通过执行下面的代码阻止系统默认的操作来防止触发 drag">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-09T11:02:21.000Z">
-<meta property="article:modified_time" content="2022-05-09T11:15:52.738Z">
+<meta property="article:published_time" content="2021-12-09T11:02:21.000Z">
+<meta property="article:modified_time" content="2022-05-11T08:12:13.611Z">
 <meta property="article:author" content="Qi">
 <meta property="article:tag" content="踩坑记录">
 <meta name="twitter:card" content="summary">
@@ -77,8 +77,10 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/archives/7eb79138d48f/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        <li><a class="icon" href="/archives/f1d8554a366f/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="/archives/7fd8b1d99ce0/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -91,17 +93,17 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/d53b1525748a/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/d53b1525748a/&text=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/d53b1525748a/&is_video=false&description=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=实现拖拽功能中mouseup事件丢失问题&body=Check out this article: http://example.com/archives/d53b1525748a/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/d53b1525748a/&name=实现拖拽功能中mouseup事件丢失问题&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/d53b1525748a/&t=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/110d22acd70c/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/110d22acd70c/&text=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/110d22acd70c/&is_video=false&description=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=实现拖拽功能中mouseup事件丢失问题&body=Check out this article: http://example.com/archives/110d22acd70c/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/110d22acd70c/&name=实现拖拽功能中mouseup事件丢失问题&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/110d22acd70c/&t=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -130,7 +132,7 @@
       
     <div class="postdate">
       
-        <time datetime="2022-05-09T11:02:21.000Z" itemprop="datePublished">2022-05-09</time>
+        <time datetime="2021-12-09T11:02:21.000Z" itemprop="datePublished">2021-12-09</time>
         
       
     </div>
@@ -196,17 +198,17 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/d53b1525748a/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/d53b1525748a/&text=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/d53b1525748a/&is_video=false&description=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=实现拖拽功能中mouseup事件丢失问题&body=Check out this article: http://example.com/archives/d53b1525748a/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/d53b1525748a/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/d53b1525748a/&name=实现拖拽功能中mouseup事件丢失问题&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/d53b1525748a/&t=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/110d22acd70c/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/110d22acd70c/&text=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/110d22acd70c/&is_video=false&description=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=实现拖拽功能中mouseup事件丢失问题&body=Check out this article: http://example.com/archives/110d22acd70c/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/110d22acd70c/&title=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/110d22acd70c/&name=实现拖拽功能中mouseup事件丢失问题&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/110d22acd70c/&t=实现拖拽功能中mouseup事件丢失问题"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
