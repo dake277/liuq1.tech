@@ -8,16 +8,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <meta name="description" content="起因在最近查看服务器监控时发现有几个文件请求404   排查发现是之前改了一些博客的标签的名称大小写，导致使用hexo g时，页面所在的资源文件夹名称大小写也相应改变，但是我们用git提交时，git却不会对我们更改的文件夹大小写进行检查，因为在git push的时候是对大小写不敏感的，windows下git默认是忽略大小写的，如果仅改动文件（夹）名，git并不能检测到diff，不会更改文件夹名称，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git上传大小写不敏感问题">
+<meta property="og:title" content="git上传大小写不敏感问题">
 <meta property="og:url" content="http://example.com/archives/956aefac4e67/index.html">
 <meta property="og:site_name" content="Qi Blog">
 <meta property="og:description" content="起因在最近查看服务器监控时发现有几个文件请求404   排查发现是之前改了一些博客的标签的名称大小写，导致使用hexo g时，页面所在的资源文件夹名称大小写也相应改变，但是我们用git提交时，git却不会对我们更改的文件夹大小写进行检查，因为在git push的时候是对大小写不敏感的，windows下git默认是忽略大小写的，如果仅改动文件（夹）名，git并不能检测到diff，不会更改文件夹名称，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/archives/956aefac4e67/2022-03-30%20232010.png">
+<meta property="og:image" content="http://example.com/archives/956aefac4e67/2022-03-30%20232010.png">
 <meta property="article:published_time" content="2022-03-30T15:17:40.000Z">
-<meta property="article:modified_time" content="2022-03-31T03:37:39.592Z">
+<meta property="article:modified_time" content="2022-06-26T04:28:09.584Z">
 <meta property="article:author" content="Qi">
-<meta property="article:tag" content="Git">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/archives/956aefac4e67/2022-03-30%20232010.png">
     
@@ -39,7 +40,7 @@
       
     
     <!-- title -->
-    <title>Git上传大小写不敏感问题</title>
+    <title>git上传大小写不敏感问题</title>
     <!-- styles -->
     
 <link rel="stylesheet" href="/css/style.css">
@@ -96,16 +97,16 @@
     <div id="share" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/956aefac4e67/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/956aefac4e67/&text=Git上传大小写不敏感问题"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/956aefac4e67/&is_video=false&description=Git上传大小写不敏感问题"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git上传大小写不敏感问题&body=Check out this article: http://example.com/archives/956aefac4e67/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/956aefac4e67/&name=Git上传大小写不敏感问题&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/956aefac4e67/&t=Git上传大小写不敏感问题"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/956aefac4e67/&text=git上传大小写不敏感问题"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/956aefac4e67/&is_video=false&description=git上传大小写不敏感问题"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=git上传大小写不敏感问题&body=Check out this article: http://example.com/archives/956aefac4e67/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/956aefac4e67/&name=git上传大小写不敏感问题&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/956aefac4e67/&t=git上传大小写不敏感问题"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -122,7 +123,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        Git上传大小写不敏感问题
+        git上传大小写不敏感问题
     </h1>
 
 
@@ -143,14 +144,14 @@
       
     <div class="article-category">
         <i class="fas fa-archive"></i>
-        <a class="category-link" href="/categories/%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95/">踩坑记录</a>
+        <a class="category-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a>
     </div>
 
 
       
     <div class="article-tag">
         <i class="fas fa-tag"></i>
-        <a class="tag-link-link" href="/tags/Git/" rel="tag">Git</a>
+        <a class="tag-link-link" href="/tags/CSS/" rel="tag">CSS</a>
     </div>
 
 
@@ -159,15 +160,17 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>在最近查看服务器监控时发现有几个文件请求404</p>
+    <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>在最近查看服务器监控时发现有几个文件请求404<br><img src="2022-03-30 232010.png"></p>
 <img src="2022-03-30 232010.png">
 
 <p>排查发现是之前改了一些博客的标签的名称大小写，导致使用hexo g时，页面所在的资源文件夹名称大小写也相应改变，但是我们用git提交时，git却不会对我们更改的文件夹大小写进行检查，因为在git push的时候是对大小写不敏感的，windows下git默认是忽略大小写的，如果仅改动文件（夹）名，git并不能检测到diff，不会更改文件夹名称，导致访问资源文件夹时出现404错误。</p>
 <h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ol>
 <li>通过git配置文件修改配置core.ignorecase<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config core.ignorecase false</span><br></pre></td></tr></table></figure></li>
 <li>使用命令git mv<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git mv -f OldFileNameCase newfilenamecase  // e.g: git mv -f lottery Lottery (将文件夹名修改为Lottery)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
+<p>111</p>
 
   </div>
 </article>
@@ -199,16 +202,16 @@
     <div id="share-footer" style="display: none">
       <ul>
   <li><a class="icon" target="_blank" rel="noopener" href="http://www.facebook.com/sharer.php?u=http://example.com/archives/956aefac4e67/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/956aefac4e67/&text=Git上传大小写不敏感问题"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/956aefac4e67/&is_video=false&description=Git上传大小写不敏感问题"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=Git上传大小写不敏感问题&body=Check out this article: http://example.com/archives/956aefac4e67/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/956aefac4e67/&title=Git上传大小写不敏感问题"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/956aefac4e67/&name=Git上传大小写不敏感问题&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/956aefac4e67/&t=Git上传大小写不敏感问题"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://twitter.com/share?url=http://example.com/archives/956aefac4e67/&text=git上传大小写不敏感问题"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.linkedin.com/shareArticle?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://pinterest.com/pin/create/bookmarklet/?url=http://example.com/archives/956aefac4e67/&is_video=false&description=git上传大小写不敏感问题"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=git上传大小写不敏感问题&body=Check out this article: http://example.com/archives/956aefac4e67/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://getpocket.com/save?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://reddit.com/submit?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.stumbleupon.com/submit?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://digg.com/submit?url=http://example.com/archives/956aefac4e67/&title=git上传大小写不敏感问题"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="http://www.tumblr.com/share/link?url=http://example.com/archives/956aefac4e67/&name=git上传大小写不敏感问题&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" target="_blank" rel="noopener" href="https://news.ycombinator.com/submitlink?u=http://example.com/archives/956aefac4e67/&t=git上传大小写不敏感问题"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>

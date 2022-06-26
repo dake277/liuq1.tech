@@ -64,10 +64,13 @@ $(document).ready(function() {
         // } else if (nav.is(":visible") && topDistance > 100) {
         //   nav.hide();
         // }
+        console.log(topDistance);
         if (topDistance < 100) {
           nav.show();
+          console.log('show');
         } else{
           nav.hide();
+          console.log('hidden');
         }
 
         // on tablet, hide the navigation icon as well and show a "scroll to top

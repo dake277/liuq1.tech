@@ -722,7 +722,7 @@ body {
 #header-post #menu-icon {
   float: right;
   margin-right: 2rem;
-  margin-left: 15px;
+  margin-left: 20px;
 }
 #header-post #menu-icon:hover {
   color: #d44375;
@@ -750,14 +750,13 @@ body {
 }
 #header-post #menu {
   visibility: visible;
-  margin-right: 2rem;
 }
 #header-post #nav {
   color: #d44375;
   letter-spacing: 0.01em;
-  font-weight: bold;
   font-style: normal;
   font-size: 0.8rem;
+  float: right;
 }
 #header-post #nav ul {
   line-height: 15px;
