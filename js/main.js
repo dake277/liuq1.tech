@@ -142,7 +142,7 @@ $(function () {
       ],
       typeSpeed: 25,
       startDelay: 300,
-      loop: false,
+      loop: true,
     };
     var typed = new Typed(".description .typed", options);
   };
